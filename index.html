@@ -62,11 +62,49 @@
 
 	<!-- Confirm -->
 	<section class="text-center py-12" data-aos="flip-left">
-		<a href="https://forms.gle/xxxx" target="_blank"
+		<h3 class="text-2xl font-semibold mb-4">✅ Xác nhận tham dự</h3>
+		<input id="guestName" type="text" placeholder="Nhập tên của bạn" class="border rounded-lg px-4 py-2 w-64 mb-4">
+		<br>
+		<button onclick="submitConfirm()"
 			class="bg-indigo-600 text-white px-6 py-3 rounded-lg shadow hover:bg-indigo-700">
-			✅ Xác nhận tham dự
-		</a>
+			Gửi xác nhận
+		</button>
+		<p id="confirmMessage" class="mt-4 font-semibold"></p>
 	</section>
+
+	<script>
+		const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyMoMiUh6TZARffvnaxM7CRZkRLdMdaT_OO0qYpr3odVE5M-UegQYIHOCJZrsWZG9hJ/exec";
+
+		async function submitConfirm() {
+			const name = document.getElementById("guestName").value.trim();
+			const msg = document.getElementById("confirmMessage");
+
+			if (!name) {
+				msg.innerText = "⚠️ Vui lòng nhập tên trước!";
+				msg.className = "mt-4 font-semibold text-red-600";
+				return;
+			}
+
+			try {
+				const res = await fetch(SCRIPT_URL, {
+					method: "POST",
+					body: JSON.stringify({ name }),
+					headers: { "Content-Type": "application/json" }
+				});
+				if (res.ok) {
+					msg.innerText = "🎉 Xác nhận thành công!";
+					msg.className = "mt-4 font-semibold text-green-600";
+					document.getElementById("guestName").value = "";
+				} else {
+					msg.innerText = "❌ Có lỗi xảy ra, thử lại sau.";
+					msg.className = "mt-4 font-semibold text-red-600";
+				}
+			} catch (err) {
+				msg.innerText = "❌ Không thể kết nối server.";
+				msg.className = "mt-4 font-semibold text-red-600";
+			}
+		}
+	</script>
 
 	<!-- Footer -->
 	<footer class="text-center py-6 bg-gray-200">
