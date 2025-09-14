@@ -25,7 +25,7 @@
 	<section class="text-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16" data-aos="fade-down">
 		<h1 class="text-4xl font-bold mb-2">🎓 Graduation Ceremony</h1>
 		<h2 class="text-3xl mb-4">Trần Minh Đức</h2>
-		<p class="mb-4">Ngày 28/09/2025 – Hội trường C2, ĐHBKHN</p>
+		<p class="mb-4">Ngày 28/09/2025 – Hội trường C2, HUST</p>
 		<div id="countdown" class="countdown"></div>
 	</section>
 
@@ -72,8 +72,24 @@
 		<p id="confirmMessage" class="mt-4 font-semibold"></p>
 	</section>
 
-	<script>
-		const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzWopfXvqQ-MAiV9MmxA-kUT6TT9Rm0NiJAALMEs_ZMBRY8wZsRdUWJBgDQNVV6obkA/exec";
+	<!-- Firebase SDK -->
+	<script type="module">
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+		import { getFirestore, collection, addDoc, serverTimestamp }
+			from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+		const firebaseConfig = {
+			apiKey: "AIzaSyBItVx0nvuhsKhczv1ApGdt4mJwPONr1ZQ",
+			authDomain: "graduation-confirm.firebaseapp.com",
+			projectId: "graduation-confirm",
+			storageBucket: "graduation-confirm.appspot.com", <!-- sửa chỗ này -->
+			messagingSenderId: "687249613419",
+			appId: "1:687249613419:web:6f577b769067f8be0f072e",
+			measurementId: "G-7LM9DL98FG"
+		};
+
+		const app = initializeApp(firebaseConfig);
+		const db = getFirestore(app);
 
 		async function submitConfirm() {
 			const name = document.getElementById("guestName").value.trim();
@@ -86,24 +102,21 @@
 			}
 
 			try {
-				const res = await fetch(SCRIPT_URL, {
-					method: "POST",
-					body: JSON.stringify({ name }),
-					headers: { "Content-Type": "application/json" }
+				await addDoc(collection(db, "guests"), {
+					name: name,
+					time: serverTimestamp()
 				});
-				if (res.ok) {
-					msg.innerText = "🎉 Xác nhận thành công!";
-					msg.className = "mt-4 font-semibold text-green-600";
-					document.getElementById("guestName").value = "";
-				} else {
-					msg.innerText = "❌ Có lỗi xảy ra, thử lại sau.";
-					msg.className = "mt-4 font-semibold text-red-600";
-				}
-			} catch (err) {
-				msg.innerText = "❌ Không thể kết nối server.";
+				msg.innerText = "🎉 Xác nhận thành công!";
+				msg.className = "mt-4 font-semibold text-green-600";
+				document.getElementById("guestName").value = "";
+			} catch (e) {
+				console.error("Lỗi ghi Firestore: ", e);
+				msg.innerText = "❌ Không thể lưu dữ liệu!";
 				msg.className = "mt-4 font-semibold text-red-600";
 			}
 		}
+
+		window.submitConfirm = submitConfirm;
 	</script>
 
 	<!-- Footer -->
@@ -113,7 +126,6 @@
 
 	<!-- JS Countdown -->
 	<script>
-		// Thời gian sự kiện: 28/09/2025 14:00
 		const eventDate = new Date("Sep 28, 2025 14:00:00").getTime();
 		const countdown = document.getElementById("countdown");
 
@@ -135,9 +147,9 @@
 		}, 1000);
 	</script>
 
-	<!-- AOS Animation -->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script>AOS.init();</script>
+
 </body>
 
 </html>
