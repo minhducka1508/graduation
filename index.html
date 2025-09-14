@@ -25,7 +25,7 @@
 	<section class="text-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16" data-aos="fade-down">
 		<h1 class="text-4xl font-bold mb-2">🎓 Graduation Ceremony</h1>
 		<h2 class="text-3xl mb-4">Trần Minh Đức</h2>
-		<p class="mb-4">Ngày 28/09/2025 – Hội trường C2, HUST</p>
+		<p class="mb-4">Ngày 28/09/2025 – Hội trường C2, BK</p>
 		<div id="countdown" class="countdown"></div>
 	</section>
 
@@ -82,7 +82,7 @@
 			apiKey: "AIzaSyBItVx0nvuhsKhczv1ApGdt4mJwPONr1ZQ",
 			authDomain: "graduation-confirm.firebaseapp.com",
 			projectId: "graduation-confirm",
-			storageBucket: "graduation-confirm.appspot.com", <!-- sửa chỗ này -->
+			storageBucket: "graduation-confirm.firebasestorage.app",
 			messagingSenderId: "687249613419",
 			appId: "1:687249613419:web:6f577b769067f8be0f072e",
 			measurementId: "G-7LM9DL98FG"
@@ -116,8 +116,10 @@
 			}
 		}
 
+		// BẮT BUỘC để nút HTML gọi được
 		window.submitConfirm = submitConfirm;
 	</script>
+
 
 	<!-- Footer -->
 	<footer class="text-center py-6 bg-gray-200">
