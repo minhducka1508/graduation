@@ -37,34 +37,66 @@
   <section class="max-w-5xl mx-auto py-12 px-4" data-aos="fade-up">
     <h3 class="text-2xl font-semibold mb-6 text-center">📸 Kỷ niệm</h3>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-
+      
       <!-- Card 1 -->
-      <div class="bg-white shadow-xl p-3 rounded-lg transform hover:-rotate-3 hover:scale-105 transition">
-        <img src="images/photo1.jpg" class="rounded-lg mb-2">
+      <div onclick="openLightbox('images/photo1.png')" 
+           class="bg-white shadow-xl p-3 rounded-lg transform hover:-rotate-3 hover:scale-105 transition cursor-pointer">
+        <img src="images/photo1.png" class="rounded-lg mb-2">
         <p class="text-sm text-center">Ảnh kỷ niệm 1</p>
       </div>
-
+  
       <!-- Card 2 -->
-      <div class="bg-white shadow-xl p-3 rounded-lg transform hover:rotate-3 hover:scale-105 transition">
-        <img src="images/photo2.jpg" class="rounded-lg mb-2">
+      <div onclick="openLightbox('images/photo2.png')" 
+           class="bg-white shadow-xl p-3 rounded-lg transform hover:rotate-3 hover:scale-105 transition cursor-pointer">
+        <img src="images/photo2.png" class="rounded-lg mb-2">
         <p class="text-sm text-center">Ảnh kỷ niệm 2</p>
       </div>
-
+  
       <!-- Card 3 -->
-      <div class="bg-white shadow-xl p-3 rounded-lg transform hover:-rotate-2 hover:scale-105 transition">
-        <img src="images/photo3.jpg" class="rounded-lg mb-2">
+      <div onclick="openLightbox('images/photo3.png')" 
+           class="bg-white shadow-xl p-3 rounded-lg transform hover:-rotate-2 hover:scale-105 transition cursor-pointer">
+        <img src="images/photo3.png" class="rounded-lg mb-2">
         <p class="text-sm text-center">Ảnh kỷ niệm 3</p>
       </div>
-
+  
       <!-- Card 4 -->
-      <div class="bg-white shadow-xl p-3 rounded-lg transform hover:rotate-2 hover:scale-105 transition">
-        <img src="images/photo4.jpg" class="rounded-lg mb-2">
+      <div onclick="openLightbox('images/photo4.png')" 
+           class="bg-white shadow-xl p-3 rounded-lg transform hover:rotate-2 hover:scale-105 transition cursor-pointer">
+        <img src="images/photo4.png" class="rounded-lg mb-2">
         <p class="text-sm text-center">Ảnh kỷ niệm 4</p>
       </div>
-
+  
     </div>
   </section>
-
+  
+  <!-- Lightbox Overlay -->
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
+    <span onclick="closeLightbox()" 
+          class="absolute top-6 right-8 text-white text-3xl font-bold cursor-pointer">&times;</span>
+    <img id="lightbox-img" src="" class="max-h-[90%] max-w-[90%] rounded-lg shadow-lg">
+  </div>
+  
+  <!-- JS Lightbox -->
+  <script>
+    function openLightbox(src) {
+      document.getElementById("lightbox").classList.remove("hidden");
+      document.getElementById("lightbox").classList.add("flex");
+      document.getElementById("lightbox-img").src = src;
+    }
+  
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.add("hidden");
+      document.getElementById("lightbox").classList.remove("flex");
+    }
+  
+    // Đóng khi click ngoài ảnh
+    document.getElementById("lightbox").addEventListener("click", function(e) {
+      if (e.target.id === "lightbox" || e.target.tagName === "SPAN") {
+        closeLightbox();
+      }
+    });
+  </script>
+  
   <!-- Location -->
   <section class="max-w-3xl mx-auto py-12 text-center px-4" data-aos="zoom-in">
     <h3 class="text-2xl font-semibold mb-6">📍 Địa điểm</h3>
