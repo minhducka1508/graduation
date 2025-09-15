@@ -7,20 +7,14 @@
   <title>Lễ Tốt Nghiệp - Trần Minh Đức</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font hỗ trợ tiếng Việt -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       scroll-behavior: smooth;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    #lightbox {
-      transition: opacity 0.3s ease;
-    }
-
-    #lightbox.hidden {
-      opacity: 0;
-      pointer-events: none;
+      font-family: 'Inter', sans-serif;
     }
   </style>
 </head>
@@ -28,90 +22,103 @@
 <body class="bg-gray-50 text-gray-800">
 
   <!-- Header -->
-  <section class="text-center bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16 md:py-20 px-4" data-aos="fade-down">
-    <h1 class="text-3xl md:text-5xl font-bold mb-3">🎓 Graduation Ceremony</h1>
-    <h2 class="text-xl md:text-3xl mb-4">Trần Minh Đức</h2>
-    <p class="mb-5 text-sm md:text-lg">Ngày 28/09/2025 – Hội trường C2, ĐHBKHN</p>
+  <section class="text-center bg-gradient-to-r from-blue-800 to-blue-600 text-white py-16 px-4" data-aos="fade-down">
+    <h1 class="text-4xl font-bold mb-2">🎓 Graduation Ceremony</h1>
+    <h2 class="text-3xl mb-4">Trần Minh Đức</h2>
+    <p class="mb-4">Ngày 28/09/2025 – Hội trường C2, ĐHBKHN</p>
     <!-- Countdown -->
-    <div id="countdown" class="flex justify-center space-x-3 md:space-x-6 mt-6"></div>
+    <div id="countdown" class="flex justify-center space-x-4 mt-6"></div>
   </section>
 
   <!-- Timeline -->
-  <section class="max-w-xl mx-auto py-12 px-4 md:px-6 bg-white shadow-lg rounded-2xl mt-8 md:mt-12" data-aos="fade-up">
-    <h3 class="text-2xl md:text-3xl font-bold mb-8 text-center text-blue-700">📅 Timeline</h3>
-    <ul class="space-y-5 text-base md:text-lg">
-      <li class="flex items-center space-x-3">
-        <span class="bg-blue-700 text-white px-3 py-1 rounded-md text-sm">13:30</span>
-        <span>Check-in & chụp ảnh</span>
-      </li>
-      <li class="flex items-center space-x-3">
-        <span class="bg-blue-700 text-white px-3 py-1 rounded-md text-sm">14:00</span>
-        <span>Lễ chính</span>
-      </li>
-      <li class="flex items-center space-x-3">
-        <span class="bg-blue-700 text-white px-3 py-1 rounded-md text-sm">15:30</span>
-        <span>Tụ tập chụp kỷ niệm</span>
-      </li>
+  <section class="max-w-2xl mx-auto py-12 px-4 bg-gray-100 shadow-md rounded-2xl mt-8" data-aos="fade-up">
+    <h3 class="text-2xl font-semibold mb-6 text-center">📅 Timeline</h3>
+    <ul class="space-y-4 text-lg text-center">
+      <li><b>13:30</b> – Check-in & chụp ảnh</li>
+      <li><b>14:00</b> – Lễ chính</li>
+      <li><b>15:30</b> – Tụ tập chụp kỷ niệm</li>
     </ul>
   </section>
 
-  <!-- Memories - Gallery -->
-  <section class="max-w-6xl mx-auto py-12 px-4 md:px-6" data-aos="fade-up">
-    <h3 class="text-2xl md:text-3xl font-bold mb-8 text-center text-blue-700">📸 Kỷ niệm</h3>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8">
+  <!-- Memories - Polaroid Gallery -->
+  <section class="max-w-5xl mx-auto py-12 px-4 bg-gray-100 shadow-md rounded-2xl mt-8" data-aos="fade-up">
+    <h3 class="text-2xl font-semibold mb-6 text-center">📸 Kỷ niệm</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
       <!-- Card 1 -->
       <div onclick="openLightbox('images/photo1.jpg')"
-        class="bg-white shadow-md p-2 rounded-lg transform hover:scale-105 transition cursor-pointer">
-        <img src="images/photo1.jpg" class="rounded-md mb-2 shadow-sm" loading="lazy">
-        <p class="text-xs md:text-sm text-center text-gray-700 font-medium">Ảnh kỷ niệm 1</p>
+        class="bg-white shadow-xl p-3 rounded-lg transform hover:-rotate-3 hover:scale-105 transition cursor-pointer">
+        <img src="images/photo1.jpg" class="rounded-lg mb-2">
+        <p class="text-sm text-center">Ảnh kỷ niệm 1</p>
       </div>
 
       <!-- Card 2 -->
       <div onclick="openLightbox('images/photo2.jpg')"
-        class="bg-white shadow-md p-2 rounded-lg transform hover:scale-105 transition cursor-pointer">
-        <img src="images/photo2.jpg" class="rounded-md mb-2 shadow-sm" loading="lazy">
-        <p class="text-xs md:text-sm text-center text-gray-700 font-medium">Ảnh kỷ niệm 2</p>
+        class="bg-white shadow-xl p-3 rounded-lg transform hover:rotate-3 hover:scale-105 transition cursor-pointer">
+        <img src="images/photo2.jpg" class="rounded-lg mb-2">
+        <p class="text-sm text-center">Ảnh kỷ niệm 2</p>
       </div>
 
       <!-- Card 3 -->
       <div onclick="openLightbox('images/photo3.jpg')"
-        class="bg-white shadow-md p-2 rounded-lg transform hover:scale-105 transition cursor-pointer">
-        <img src="images/photo3.jpg" class="rounded-md mb-2 shadow-sm" loading="lazy">
-        <p class="text-xs md:text-sm text-center text-gray-700 font-medium">Ảnh kỷ niệm 3</p>
+        class="bg-white shadow-xl p-3 rounded-lg transform hover:-rotate-2 hover:scale-105 transition cursor-pointer">
+        <img src="images/photo3.jpg" class="rounded-lg mb-2">
+        <p class="text-sm text-center">Ảnh kỷ niệm 3</p>
       </div>
 
       <!-- Card 4 -->
       <div onclick="openLightbox('images/photo4.jpg')"
-        class="bg-white shadow-md p-2 rounded-lg transform hover:scale-105 transition cursor-pointer">
-        <img src="images/photo4.jpg" class="rounded-md mb-2 shadow-sm" loading="lazy">
-        <p class="text-xs md:text-sm text-center text-gray-700 font-medium">Ảnh kỷ niệm 4</p>
+        class="bg-white shadow-xl p-3 rounded-lg transform hover:rotate-2 hover:scale-105 transition cursor-pointer">
+        <img src="images/photo4.jpg" class="rounded-lg mb-2">
+        <p class="text-sm text-center">Ảnh kỷ niệm 4</p>
       </div>
 
     </div>
   </section>
 
   <!-- Lightbox Overlay -->
-  <div id="lightbox"
-    class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50 transition-opacity duration-300">
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
     <span onclick="closeLightbox()"
-      class="absolute top-4 right-6 text-white text-3xl md:text-4xl font-bold cursor-pointer">&times;</span>
-    <img id="lightbox-img" src="" class="max-h-[85%] max-w-[90%] rounded-lg shadow-lg">
+      class="absolute top-6 right-8 text-white text-3xl font-bold cursor-pointer">&times;</span>
+    <img id="lightbox-img" src="" class="max-h-[90%] max-w-[90%] rounded-lg shadow-lg">
   </div>
 
-  <!-- JS Lightbox -->
+  <!-- Location -->
+  <section class="max-w-3xl mx-auto py-12 px-4 bg-gray-100 shadow-md rounded-2xl mt-8 text-center" data-aos="zoom-in">
+    <h3 class="text-2xl font-semibold mb-6">📍 Địa điểm</h3>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4975.906783270906!2d105.8423066!3d21.006447399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac77be0eafaf%3A0xd66f269f842d3935!2zSOG7mWkgdHLGsOG7nW5nIEMy!5e1!3m2!1svi!2s!4v1757783032997!5m2!1svi!2s"
+      width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+
+  <!-- Confirm -->
+  <section class="text-center py-12 px-4 bg-gray-100 shadow-md rounded-2xl mt-8 max-w-xl mx-auto" data-aos="flip-left">
+    <h3 class="text-2xl font-semibold mb-4">✅ Xác nhận tham dự</h3>
+    <input id="guestName" type="text" placeholder="Nhập tên của bạn"
+      class="border rounded-lg px-4 py-2 w-64 mb-4 shadow-sm">
+    <br>
+    <button onclick="submitConfirm()"
+      class="bg-blue-700 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-800 transition">
+      Gửi xác nhận
+    </button>
+    <p id="confirmMessage" class="mt-4 font-semibold"></p>
+  </section>
+
+  <!-- Canvas Fireworks -->
+  <canvas id="fireworksCanvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
+
+  <!-- Lightbox JS -->
   <script>
     function openLightbox(src) {
-      const lb = document.getElementById("lightbox");
-      lb.classList.remove("hidden");
-      lb.classList.add("flex");
+      document.getElementById("lightbox").classList.remove("hidden");
+      document.getElementById("lightbox").classList.add("flex");
       document.getElementById("lightbox-img").src = src;
     }
 
     function closeLightbox() {
-      const lb = document.getElementById("lightbox");
-      lb.classList.add("hidden");
-      lb.classList.remove("flex");
+      document.getElementById("lightbox").classList.add("hidden");
+      document.getElementById("lightbox").classList.remove("flex");
     }
 
     document.getElementById("lightbox").addEventListener("click", function (e) {
@@ -120,29 +127,6 @@
       }
     });
   </script>
-
-  <!-- Location -->
-  <section class="max-w-3xl mx-auto py-12 px-4 md:px-6 text-center bg-white shadow-lg rounded-2xl mt-8 md:mt-12"
-    data-aos="zoom-in">
-    <h3 class="text-2xl md:text-3xl font-bold mb-6 text-blue-700">📍 Địa điểm</h3>
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4975.906783270906!2d105.8423066!3d21.006447399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac77be0eafaf%3A0xd66f269f842d3935!2zSOG7mWkgdHLGsOG7nW5nIEMy!5e1!3m2!1svi!2s!4v1757783032997!5m2!1svi!2s"
-      width="100%" height="300" class="rounded-lg shadow" style="border:0;" allowfullscreen="" loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </section>
-
-  <!-- Confirm -->
-  <section class="text-center py-12 px-4" data-aos="flip-left">
-    <h3 class="text-2xl md:text-3xl font-bold mb-6 text-blue-700">✅ Xác nhận tham dự</h3>
-    <input id="guestName" type="text" placeholder="Nhập tên của bạn"
-      class="border rounded-lg px-4 py-2 w-full sm:w-72 mb-4 shadow focus:ring-2 focus:ring-blue-500">
-    <br>
-    <button onclick="submitConfirm()"
-      class="bg-blue-700 text-white px-8 py-3 rounded-lg shadow hover:bg-blue-800 transition w-full sm:w-auto">
-      Gửi xác nhận
-    </button>
-    <p id="confirmMessage" class="mt-4 font-semibold text-sm md:text-base"></p>
-  </section>
 
   <!-- Firebase SDK -->
   <script type="module">
@@ -181,6 +165,7 @@
         msg.innerText = "🎉 Xác nhận thành công!";
         msg.className = "mt-4 font-semibold text-green-600";
         document.getElementById("guestName").value = "";
+        triggerFireworks(); // 🚀 Hiệu ứng pháo hoa
       } catch (e) {
         console.error("Lỗi ghi Firestore: ", e);
         msg.innerText = "❌ Không thể lưu dữ liệu!";
@@ -191,12 +176,72 @@
     window.submitConfirm = submitConfirm;
   </script>
 
-  <!-- Footer -->
-  <footer class="text-center py-6 bg-gradient-to-r from-blue-700 to-blue-900 text-white mt-8">
-    <p class="font-medium text-sm md:text-base">🎓 Cảm ơn vì đã đến chung vui cùng mình! ❤️</p>
-  </footer>
+  <!-- Fireworks JS -->
+  <script>
+    const canvas = document.getElementById("fireworksCanvas");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+    let w, h;
 
-  <!-- JS Countdown -->
+    function resizeCanvas() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.speedX = (Math.random() - 0.5) * 6;
+        this.speedY = (Math.random() - 0.5) * 6;
+        this.alpha = 1;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.alpha -= 0.02;
+      }
+      draw() {
+        ctx.globalAlpha = this.alpha;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    function createFirework(x, y) {
+      const colors = ["#2563eb", "#1d4ed8", "#10b981", "#f59e0b", "#ef4444"];
+      for (let i = 0; i < 50; i++) {
+        particles.push(new Particle(x, y, colors[Math.floor(Math.random() * colors.length)]));
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, w, h);
+      particles.forEach((p, i) => {
+        p.update();
+        p.draw();
+        if (p.alpha <= 0) particles.splice(i, 1);
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    function triggerFireworks() {
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+          createFirework(Math.random() * w, Math.random() * h / 2 + h / 4);
+        }, i * 400);
+      }
+    }
+  </script>
+
+  <!-- Countdown -->
   <script>
     const eventDate = new Date("Sep 28, 2025 14:00:00").getTime();
     const countdown = document.getElementById("countdown");
@@ -206,7 +251,7 @@
       const distance = eventDate - now;
 
       if (distance < 0) {
-        countdown.innerHTML = `<div class="text-lg md:text-2xl font-bold text-green-600">🎉 Lễ đã bắt đầu!</div>`;
+        countdown.innerHTML = `<div class="text-2xl font-bold text-green-600">🎉 Lễ đã bắt đầu!</div>`;
         return;
       }
 
@@ -216,21 +261,21 @@
       const secs = Math.floor((distance % (1000 * 60)) / 1000);
 
       countdown.innerHTML = `
-        <div class="bg-white text-blue-700 px-3 py-2 md:px-5 md:py-4 rounded-lg shadow text-center">
-          <div class="text-xl md:text-4xl font-bold">${days}</div>
-          <div class="text-xs md:text-sm uppercase">Ngày</div>
+        <div class="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-4 py-3 rounded-lg shadow text-center">
+          <div class="text-3xl font-bold">${days}</div>
+          <div class="text-sm uppercase">Ngày</div>
         </div>
-        <div class="bg-white text-blue-700 px-3 py-2 md:px-5 md:py-4 rounded-lg shadow text-center">
-          <div class="text-xl md:text-4xl font-bold">${hours}</div>
-          <div class="text-xs md:text-sm uppercase">Giờ</div>
+        <div class="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-4 py-3 rounded-lg shadow text-center">
+          <div class="text-3xl font-bold">${hours}</div>
+          <div class="text-sm uppercase">Giờ</div>
         </div>
-        <div class="bg-white text-blue-700 px-3 py-2 md:px-5 md:py-4 rounded-lg shadow text-center">
-          <div class="text-xl md:text-4xl font-bold">${mins}</div>
-          <div class="text-xs md:text-sm uppercase">Phút</div>
+        <div class="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-4 py-3 rounded-lg shadow text-center">
+          <div class="text-3xl font-bold">${mins}</div>
+          <div class="text-sm uppercase">Phút</div>
         </div>
-        <div class="bg-white text-blue-700 px-3 py-2 md:px-5 md:py-4 rounded-lg shadow text-center">
-          <div class="text-xl md:text-4xl font-bold">${secs}</div>
-          <div class="text-xs md:text-sm uppercase">Giây</div>
+        <div class="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-4 py-3 rounded-lg shadow text-center">
+          <div class="text-3xl font-bold">${secs}</div>
+          <div class="text-sm uppercase">Giây</div>
         </div>
       `;
     }
@@ -239,8 +284,14 @@
     setInterval(updateCountdown, 1000);
   </script>
 
+  <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init();</script>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 bg-gray-200 mt-12">
+    <p>Cảm ơn vì đã đến chung vui cùng mình! 💖</p>
+  </footer>
 
 </body>
 </html>
