@@ -7,113 +7,137 @@
   <title>Lễ Tốt Nghiệp - Trần Minh Đức</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body { scroll-behavior: smooth; }
+    body {
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #lightbox {
+      transition: opacity 0.3s ease;
+    }
+
+    #lightbox.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
 
   <!-- Header -->
-  <section class="text-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16" data-aos="fade-down">
-    <h1 class="text-4xl font-bold mb-2">🎓 Graduation Ceremony</h1>
-    <h2 class="text-3xl mb-4">Trần Minh Đức</h2>
-    <p class="mb-4">Ngày 28/09/2025 – Hội trường C2, BK</p>
+  <section class="text-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20" data-aos="fade-down">
+    <h1 class="text-5xl font-bold mb-4">🎓 Graduation Ceremony</h1>
+    <h2 class="text-3xl mb-6">Trần Minh Đức</h2>
+    <p class="mb-6 text-lg">Ngày 28/09/2025 – Hội trường C2, ĐHBKHN</p>
     <!-- Countdown -->
-    <div id="countdown" class="flex justify-center space-x-4 mt-6"></div>
+    <div id="countdown" class="flex justify-center space-x-6 mt-6"></div>
   </section>
 
   <!-- Timeline -->
-  <section class="max-w-2xl mx-auto py-12 px-4" data-aos="fade-right">
-    <h3 class="text-2xl font-semibold mb-6 text-center">📅 Timeline</h3>
-    <ul class="space-y-4 text-lg">
-      <li><b>13:30</b> – Check-in & chụp ảnh</li>
-      <li><b>14:00</b> – Lễ chính</li>
-      <li><b>15:30</b> – Tụ tập chụp kỷ niệm</li>
+  <section class="max-w-2xl mx-auto py-16 px-6 bg-white shadow-lg rounded-2xl mt-12" data-aos="fade-up">
+    <h3 class="text-3xl font-bold mb-8 text-center text-indigo-700">📅 Timeline</h3>
+    <ul class="space-y-6 text-lg">
+      <li class="flex items-center space-x-3">
+        <span class="bg-indigo-600 text-white px-3 py-1 rounded-md text-sm">13:30</span>
+        <span>Check-in & chụp ảnh</span>
+      </li>
+      <li class="flex items-center space-x-3">
+        <span class="bg-indigo-600 text-white px-3 py-1 rounded-md text-sm">14:00</span>
+        <span>Lễ chính</span>
+      </li>
+      <li class="flex items-center space-x-3">
+        <span class="bg-indigo-600 text-white px-3 py-1 rounded-md text-sm">15:30</span>
+        <span>Tụ tập chụp kỷ niệm</span>
+      </li>
     </ul>
   </section>
 
   <!-- Memories - Polaroid Gallery -->
-  <section class="max-w-5xl mx-auto py-12 px-4" data-aos="fade-up">
-    <h3 class="text-2xl font-semibold mb-6 text-center">📸 Kỷ niệm</h3>
+  <section class="max-w-6xl mx-auto py-16 px-6" data-aos="fade-up">
+    <h3 class="text-3xl font-bold mb-8 text-center text-indigo-700">📸 Kỷ niệm</h3>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      
+
       <!-- Card 1 -->
-      <div onclick="openLightbox('images/photo1.jpg')" 
-           class="bg-white shadow-xl p-3 rounded-lg transform hover:-rotate-3 hover:scale-105 transition cursor-pointer">
-        <img src="images/photo1.jpg" class="rounded-lg mb-2">
-        <p class="text-sm text-center">Ảnh kỷ niệm 1</p>
+      <div onclick="openLightbox('images/photo1.jpg')"
+        class="bg-white shadow-xl p-3 rounded-xl transform hover:scale-105 transition cursor-pointer">
+        <img src="images/photo1.jpg" class="rounded-lg mb-3 shadow-md" loading="lazy">
+        <p class="text-sm text-center text-gray-700 font-medium">Ảnh kỷ niệm 1</p>
       </div>
-  
+
       <!-- Card 2 -->
-      <div onclick="openLightbox('images/photo2.jpg')" 
-           class="bg-white shadow-xl p-3 rounded-lg transform hover:rotate-3 hover:scale-105 transition cursor-pointer">
-        <img src="images/photo2.jpg" class="rounded-lg mb-2">
-        <p class="text-sm text-center">Ảnh kỷ niệm 2</p>
+      <div onclick="openLightbox('images/photo2.jpg')"
+        class="bg-white shadow-xl p-3 rounded-xl transform hover:scale-105 transition cursor-pointer">
+        <img src="images/photo2.jpg" class="rounded-lg mb-3 shadow-md" loading="lazy">
+        <p class="text-sm text-center text-gray-700 font-medium">Ảnh kỷ niệm 2</p>
       </div>
-  
+
       <!-- Card 3 -->
-      <div onclick="openLightbox('images/photo3.jpg')" 
-           class="bg-white shadow-xl p-3 rounded-lg transform hover:-rotate-2 hover:scale-105 transition cursor-pointer">
-        <img src="images/photo3.jpg" class="rounded-lg mb-2">
-        <p class="text-sm text-center">Ảnh kỷ niệm 3</p>
+      <div onclick="openLightbox('images/photo3.jpg')"
+        class="bg-white shadow-xl p-3 rounded-xl transform hover:scale-105 transition cursor-pointer">
+        <img src="images/photo3.jpg" class="rounded-lg mb-3 shadow-md" loading="lazy">
+        <p class="text-sm text-center text-gray-700 font-medium">Ảnh kỷ niệm 3</p>
       </div>
-  
+
       <!-- Card 4 -->
-      <div onclick="openLightbox('images/photo4.jpg')" 
-           class="bg-white shadow-xl p-3 rounded-lg transform hover:rotate-2 hover:scale-105 transition cursor-pointer">
-        <img src="images/photo4.jpg" class="rounded-lg mb-2">
-        <p class="text-sm text-center">Ảnh kỷ niệm 4</p>
+      <div onclick="openLightbox('images/photo4.jpg')"
+        class="bg-white shadow-xl p-3 rounded-xl transform hover:scale-105 transition cursor-pointer">
+        <img src="images/photo4.jpg" class="rounded-lg mb-3 shadow-md" loading="lazy">
+        <p class="text-sm text-center text-gray-700 font-medium">Ảnh kỷ niệm 4</p>
       </div>
-  
+
     </div>
   </section>
-  
+
   <!-- Lightbox Overlay -->
-  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
-    <span onclick="closeLightbox()" 
-          class="absolute top-6 right-8 text-white text-3xl font-bold cursor-pointer">&times;</span>
+  <div id="lightbox"
+    class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50 transition-opacity duration-300">
+    <span onclick="closeLightbox()"
+      class="absolute top-6 right-8 text-white text-4xl font-bold cursor-pointer">&times;</span>
     <img id="lightbox-img" src="" class="max-h-[90%] max-w-[90%] rounded-lg shadow-lg">
   </div>
-  
+
   <!-- JS Lightbox -->
   <script>
     function openLightbox(src) {
-      document.getElementById("lightbox").classList.remove("hidden");
-      document.getElementById("lightbox").classList.add("flex");
+      const lb = document.getElementById("lightbox");
+      lb.classList.remove("hidden");
+      lb.classList.add("flex");
       document.getElementById("lightbox-img").src = src;
     }
-  
+
     function closeLightbox() {
-      document.getElementById("lightbox").classList.add("hidden");
-      document.getElementById("lightbox").classList.remove("flex");
+      const lb = document.getElementById("lightbox");
+      lb.classList.add("hidden");
+      lb.classList.remove("flex");
     }
-  
-    // Đóng khi click ngoài ảnh
-    document.getElementById("lightbox").addEventListener("click", function(e) {
+
+    document.getElementById("lightbox").addEventListener("click", function (e) {
       if (e.target.id === "lightbox" || e.target.tagName === "SPAN") {
         closeLightbox();
       }
     });
   </script>
-  
+
   <!-- Location -->
-  <section class="max-w-3xl mx-auto py-12 text-center px-4" data-aos="zoom-in">
-    <h3 class="text-2xl font-semibold mb-6">📍 Địa điểm</h3>
+  <section class="max-w-3xl mx-auto py-16 text-center px-6 bg-white shadow-lg rounded-2xl mt-12" data-aos="zoom-in">
+    <h3 class="text-3xl font-bold mb-6 text-indigo-700">📍 Địa điểm</h3>
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4975.906783270906!2d105.8423066!3d21.006447399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac77be0eafaf%3A0xd66f269f842d3935!2zSOG7mWkgdHLGsOG7nW5nIEMy!5e1!3m2!1svi!2s!4v1757783032997!5m2!1svi!2s"
       width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 
   <!-- Confirm -->
-  <section class="text-center py-12" data-aos="flip-left">
-    <h3 class="text-2xl font-semibold mb-4">✅ Xác nhận tham dự</h3>
-    <input id="guestName" type="text" placeholder="Nhập tên của bạn" class="border rounded-lg px-4 py-2 w-64 mb-4">
+  <section class="text-center py-16" data-aos="flip-left">
+    <h3 class="text-3xl font-bold mb-6 text-indigo-700">✅ Xác nhận tham dự</h3>
+    <input id="guestName" type="text" placeholder="Nhập tên của bạn"
+      class="border rounded-lg px-4 py-2 w-72 mb-4 shadow focus:ring-2 focus:ring-indigo-500">
     <br>
     <button onclick="submitConfirm()"
-      class="bg-indigo-600 text-white px-6 py-3 rounded-lg shadow hover:bg-indigo-700">
+      class="bg-indigo-600 text-white px-8 py-3 rounded-lg shadow hover:bg-indigo-700 transition">
       Gửi xác nhận
     </button>
     <p id="confirmMessage" class="mt-4 font-semibold"></p>
@@ -126,14 +150,14 @@
       from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
     const firebaseConfig = {
-			apiKey: "AIzaSyBItVx0nvuhsKhczv1ApGdt4mJwPONr1ZQ",
-			authDomain: "graduation-confirm.firebaseapp.com",
-			projectId: "graduation-confirm",
-			storageBucket: "graduation-confirm.firebasestorage.app",
-			messagingSenderId: "687249613419",
-			appId: "1:687249613419:web:6f577b769067f8be0f072e",
-			measurementId: "G-7LM9DL98FG"
-		};
+      apiKey: "AIzaSyBItVx0nvuhsKhczv1ApGdt4mJwPONr1ZQ",
+      authDomain: "graduation-confirm.firebaseapp.com",
+      projectId: "graduation-confirm",
+      storageBucket: "graduation-confirm.appspot.com",
+      messagingSenderId: "687249613419",
+      appId: "1:687249613419:web:6f577b769067f8be0f072e",
+      measurementId: "G-7LM9DL98FG"
+    };
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
@@ -167,11 +191,11 @@
   </script>
 
   <!-- Footer -->
-  <footer class="text-center py-6 bg-gray-200">
-    <p>Cảm ơn vì đã đến chung vui cùng mình! 💖</p>
+  <footer class="text-center py-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white mt-12">
+    <p class="font-medium">🎓 Cảm ơn vì đã đến chung vui cùng mình! ❤️</p>
   </footer>
 
-  <!-- JS Countdown (kiểu ô vuông) -->
+  <!-- JS Countdown (ô vuông đẹp) -->
   <script>
     const eventDate = new Date("Sep 28, 2025 14:00:00").getTime();
     const countdown = document.getElementById("countdown");
@@ -191,20 +215,20 @@
       const secs = Math.floor((distance % (1000 * 60)) / 1000);
 
       countdown.innerHTML = `
-        <div class="bg-gradient-to-r from-yellow-600 to-yellow-800 text-white px-4 py-3 rounded-lg shadow text-center">
-          <div class="text-3xl font-bold">${days}</div>
+        <div class="bg-white text-indigo-700 px-5 py-4 rounded-lg shadow text-center">
+          <div class="text-4xl font-bold">${days}</div>
           <div class="text-sm uppercase">Ngày</div>
         </div>
-        <div class="bg-gradient-to-r from-yellow-600 to-yellow-800 text-white px-4 py-3 rounded-lg shadow text-center">
-          <div class="text-3xl font-bold">${hours}</div>
+        <div class="bg-white text-indigo-700 px-5 py-4 rounded-lg shadow text-center">
+          <div class="text-4xl font-bold">${hours}</div>
           <div class="text-sm uppercase">Giờ</div>
         </div>
-        <div class="bg-gradient-to-r from-yellow-600 to-yellow-800 text-white px-4 py-3 rounded-lg shadow text-center">
-          <div class="text-3xl font-bold">${mins}</div>
+        <div class="bg-white text-indigo-700 px-5 py-4 rounded-lg shadow text-center">
+          <div class="text-4xl font-bold">${mins}</div>
           <div class="text-sm uppercase">Phút</div>
         </div>
-        <div class="bg-gradient-to-r from-yellow-600 to-yellow-800 text-white px-4 py-3 rounded-lg shadow text-center">
-          <div class="text-3xl font-bold">${secs}</div>
+        <div class="bg-white text-indigo-700 px-5 py-4 rounded-lg shadow text-center">
+          <div class="text-4xl font-bold">${secs}</div>
           <div class="text-sm uppercase">Giây</div>
         </div>
       `;
@@ -218,4 +242,5 @@
   <script>AOS.init();</script>
 
 </body>
+
 </html>
