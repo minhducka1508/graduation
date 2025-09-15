@@ -164,19 +164,44 @@
 			currentIndex = (currentIndex + 1) % galleryImages.length;
 			document.getElementById("lightbox-img").src = galleryImages[currentIndex];
 		}
-		document.getElementById("lightbox").addEventListener("click", function (e) {
-			if (e.target.id === "lightbox") closeLightbox();
-		});
-		document.addEventListener("keydown", function (e) {
-			if (document.getElementById("lightbox").classList.contains("flex")) {
-				if (e.key === "ArrowLeft") prevImage();
-				if (e.key === "ArrowRight") nextImage();
-				if (e.key === "Escape") closeLightbox();
-			}
-		});
 	</script>
 
-	<!-- Firebase Confirm (giữ nguyên code cũ của bạn) -->
+	<!-- Fireworks Canvas -->
+	<canvas id="fireworksCanvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
+	<script>
+		const canvas = document.getElementById("fireworksCanvas");
+		const ctx = canvas.getContext("2d");
+		let particles = [];
+		let w, h;
+		function resizeCanvas() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+		window.addEventListener("resize", resizeCanvas); resizeCanvas();
+		class Particle {
+			constructor(x, y, color) {
+				this.x = x; this.y = y; this.color = color;
+				this.speedX = (Math.random() - 0.5) * 6;
+				this.speedY = (Math.random() - 0.5) * 6;
+				this.alpha = 1;
+			}
+			update() { this.x += this.speedX; this.y += this.speedY; this.alpha -= 0.02; }
+			draw() { ctx.globalAlpha = this.alpha; ctx.fillStyle = this.color; ctx.beginPath(); ctx.arc(this.x, this.y, 3, 0, Math.PI * 2); ctx.fill(); ctx.globalAlpha = 1; }
+		}
+		function createFirework(x, y) {
+			const colors = ["#ff1d25", "#ffd700", "#ffffff", "#9d1d1f"];
+			for (let i = 0; i < 50; i++) particles.push(new Particle(x, y, colors[Math.floor(Math.random() * colors.length)]));
+		}
+		function animate() {
+			ctx.clearRect(0, 0, w, h);
+			particles.forEach((p, i) => { p.update(); p.draw(); if (p.alpha <= 0) particles.splice(i, 1); });
+			requestAnimationFrame(animate);
+		}
+		animate();
+		function triggerFireworks() {
+			for (let i = 0; i < 5; i++) setTimeout(() => { createFirework(Math.random() * w, Math.random() * h / 2 + h / 4); }, i * 400);
+		}
+		window.triggerFireworks = triggerFireworks;
+	</script>
+
+	<!-- Firebase Confirm -->
 	<script type="module">
 		import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 		import { getFirestore, collection, addDoc, serverTimestamp }
@@ -208,6 +233,7 @@
 				msg.innerText = "🎉 Xác nhận thành công!";
 				msg.className = "mt-3 sm:mt-4 font-semibold text-green-600";
 				document.getElementById("guestName").value = "";
+				triggerFireworks(); // hiệu ứng pháo hoa
 			} catch (e) {
 				console.error("Lỗi ghi Firestore: ", e);
 				msg.innerText = "❌ Không thể lưu dữ liệu!";
@@ -221,48 +247,44 @@
 	<script>
 		const eventDate = new Date("Sep 28, 2025 14:00:00").getTime();
 		const countdown = document.getElementById("countdown");
+
 		function updateCountdown() {
 			const now = new Date().getTime();
 			const distance = eventDate - now;
+
 			if (distance < 0) {
 				countdown.innerHTML = `<div class="text-xl sm:text-2xl font-bold text-green-300">🎉 Lễ đã bắt đầu!</div>`;
 				return;
 			}
+
 			const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 			const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 			const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 			const secs = Math.floor((distance % (1000 * 60)) / 1000);
+
+			function card(value, label) {
+				return `
+          <div class="bg-[#9d1d1f] text-white px-3 py-3 sm:px-5 sm:py-4
+                      rounded-xl shadow-2xl text-center w-16 sm:w-24
+                      transform hover:scale-105 transition
+                      border border-white/30 relative">
+            <div class="text-lg sm:text-3xl font-extrabold drop-shadow-lg">${value}</div>
+            <div class="text-[10px] sm:text-sm uppercase tracking-wide opacity-90">${label}</div>
+            <div class="absolute inset-0 rounded-xl ring-2 ring-red-300/40 animate-pulse"></div>
+          </div>
+        `;
+			}
+
 			countdown.innerHTML = `
-				<div class="bg-[#9d1d1f] text-white px-2 py-2 sm:px-4 sm:py-3 
-							rounded-xl shadow-2xl text-center w-16 sm:w-24 
-							transform hover:scale-105 transition 
-							border border-white/30">
-					<div class="text-lg sm:text-3xl font-extrabold drop-shadow-lg">${days}</div>
-					<div class="text-xs sm:text-sm uppercase tracking-wide">Ngày</div>
-				</div>
-				<div class="bg-[#9d1d1f] text-white px-2 py-2 sm:px-4 sm:py-3 
-							rounded-xl shadow-2xl text-center w-16 sm:w-24 
-							transform hover:scale-105 transition 
-							border border-white/30">
-					<div class="text-lg sm:text-3xl font-extrabold drop-shadow-lg">${hours}</div>
-					<div class="text-xs sm:text-sm uppercase tracking-wide">Giờ</div>
-				</div>
-				<div class="bg-[#9d1d1f] text-white px-2 py-2 sm:px-4 sm:py-3 
-							rounded-xl shadow-2xl text-center w-16 sm:w-24 
-							transform hover:scale-105 transition 
-							border border-white/30">
-					<div class="text-lg sm:text-3xl font-extrabold drop-shadow-lg">${mins}</div>
-					<div class="text-xs sm:text-sm uppercase tracking-wide">Phút</div>
-				</div>
-				<div class="bg-[#9d1d1f] text-white px-2 py-2 sm:px-4 sm:py-3 
-							rounded-xl shadow-2xl text-center w-16 sm:w-24 
-							transform hover:scale-105 transition 
-							border border-white/30">
-					<div class="text-lg sm:text-3xl font-extrabold drop-shadow-lg">${secs}</div>
-					<div class="text-xs sm:text-sm uppercase tracking-wide">Giây</div>
-				</div>`;
+        ${card(days, "Ngày")}
+        ${card(hours, "Giờ")}
+        ${card(mins, "Phút")}
+        ${card(secs, "Giây")}
+      `;
 		}
-		updateCountdown(); setInterval(updateCountdown, 1000);
+
+		updateCountdown();
+		setInterval(updateCountdown, 1000);
 	</script>
 
 	<!-- AOS -->
