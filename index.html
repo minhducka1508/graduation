@@ -16,160 +16,143 @@
       scroll-behavior: smooth;
       font-family: 'Inter', sans-serif;
     }
-
-    /* Countdown nhỏ lại cho màn hình rất bé */
-    @media (max-width: 400px) {
-      #countdown div {
-        padding: 0.5rem !important;
-      }
-      #countdown .text-3xl {
-        font-size: 1.25rem;
-      }
-      #countdown .text-sm {
-        font-size: 0.6rem;
-      }
-    }
-
-    /* Map thấp hơn trên mobile */
-    @media (max-width: 640px) {
-      iframe {
-        height: 150px !important;
-      }
-    }
-
-    /* Loading spinner */
-    .spinner {
-      border: 3px solid #f3f3f3;
-      border-top: 3px solid #2563eb;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      animation: spin 1s linear infinite;
-      display: inline-block;
-      vertical-align: middle;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg);}
-      100% { transform: rotate(360deg);}
-    }
   </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
 
   <!-- Header -->
-  <section class="text-center bg-gradient-to-r from-blue-800 to-blue-600 text-white py-16 px-4" data-aos="fade-down">
-    <h1 class="text-4xl font-bold mb-2">🎓 Graduation Ceremony</h1>
-    <h2 class="text-3xl mb-4">Trần Minh Đức</h2>
-    <p class="mb-4">Ngày 28/09/2025 – Hội trường C2, ĐHBKHN</p>
-    <div id="countdown" class="flex justify-center space-x-4 mt-6"></div>
+  <section class="text-center bg-gradient-to-r from-blue-800 to-blue-600 text-white py-12 sm:py-16 px-4"
+    data-aos="fade-down">
+    <h1 class="text-3xl sm:text-4xl font-bold mb-2">🎓 Graduation Ceremony</h1>
+    <h2 class="text-2xl sm:text-3xl mb-4">Trần Minh Đức</h2>
+    <p class="mb-4 text-sm sm:text-base">Ngày 28/09/2025 – Hội trường C2, ĐHBKHN</p>
+    <!-- Countdown -->
+    <div id="countdown" class="flex justify-center space-x-2 sm:space-x-4 mt-6 px-2"></div>
   </section>
 
   <!-- Timeline -->
-  <section class="max-w-2xl mx-auto py-16 px-6 bg-gray-100 shadow-md rounded-2xl mt-12" data-aos="fade-up">
-    <h3 class="text-2xl font-semibold mb-6 text-center">📅 Timeline</h3>
-    <ul class="space-y-4 text-lg text-center">
+  <section
+    class="max-w-2xl mx-auto py-8 sm:py-12 px-4 bg-gray-100 shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12"
+    data-aos="fade-up">
+    <h3 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center">📅 Timeline</h3>
+    <ul class="space-y-2 sm:space-y-4 text-sm sm:text-lg text-center">
       <li><b>13:30</b> – Check-in & chụp ảnh</li>
       <li><b>14:00</b> – Lễ chính</li>
       <li><b>15:30</b> – Tụ tập chụp kỷ niệm</li>
     </ul>
   </section>
 
-  <!-- Memories -->
-  <section class="max-w-6xl mx-auto py-16 px-6 bg-gray-100 shadow-md rounded-2xl mt-12" data-aos="fade-up">
-    <h3 class="text-2xl font-semibold mb-6 text-center">📸 Kỷ niệm</h3>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+  <!-- Memories - Polaroid Gallery -->
+  <section
+    class="max-w-5xl mx-auto py-8 sm:py-12 px-4 bg-gray-100 shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12"
+    data-aos="fade-up">
+    <h3 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center">📸 Kỷ niệm</h3>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
 
-      <div onclick="openLightbox(0)" class="bg-white shadow-xl p-3 rounded-lg transform hover:-rotate-3 hover:scale-105 transition cursor-pointer">
-        <img src="images/photo1.jpg" class="rounded-lg mb-2" loading="lazy">
-        <p class="text-sm text-center">Ảnh kỷ niệm 1</p>
+      <!-- Card 1 -->
+      <div onclick="openLightbox('images/photo1.jpg')"
+        class="bg-white shadow-xl p-2 sm:p-3 rounded-lg transform hover:-rotate-3 hover:scale-105 transition cursor-pointer">
+        <img src="images/photo1.jpg" class="rounded-lg mb-2">
+        <p class="text-xs sm:text-sm text-center">Ảnh kỷ niệm 1</p>
       </div>
 
-      <div onclick="openLightbox(1)" class="bg-white shadow-xl p-3 rounded-lg transform hover:rotate-3 hover:scale-105 transition cursor-pointer">
-        <img src="images/photo2.jpg" class="rounded-lg mb-2" loading="lazy">
-        <p class="text-sm text-center">Ảnh kỷ niệm 2</p>
+      <!-- Card 2 -->
+      <div onclick="openLightbox('images/photo2.jpg')"
+        class="bg-white shadow-xl p-2 sm:p-3 rounded-lg transform hover:rotate-3 hover:scale-105 transition cursor-pointer">
+        <img src="images/photo2.jpg" class="rounded-lg mb-2">
+        <p class="text-xs sm:text-sm text-center">Ảnh kỷ niệm 2</p>
       </div>
 
-      <div onclick="openLightbox(2)" class="bg-white shadow-xl p-3 rounded-lg transform hover:-rotate-2 hover:scale-105 transition cursor-pointer">
-        <img src="images/photo3.jpg" class="rounded-lg mb-2" loading="lazy">
-        <p class="text-sm text-center">Ảnh kỷ niệm 3</p>
+      <!-- Card 3 -->
+      <div onclick="openLightbox('images/photo3.jpg')"
+        class="bg-white shadow-xl p-2 sm:p-3 rounded-lg transform hover:-rotate-2 hover:scale-105 transition cursor-pointer">
+        <img src="images/photo3.jpg" class="rounded-lg mb-2">
+        <p class="text-xs sm:text-sm text-center">Ảnh kỷ niệm 3</p>
       </div>
 
-      <div onclick="openLightbox(3)" class="bg-white shadow-xl p-3 rounded-lg transform hover:rotate-2 hover:scale-105 transition cursor-pointer">
-        <img src="images/photo4.jpg" class="rounded-lg mb-2" loading="lazy">
-        <p class="text-sm text-center">Ảnh kỷ niệm 4</p>
+      <!-- Card 4 -->
+      <div onclick="openLightbox('images/photo4.jpg')"
+        class="bg-white shadow-xl p-2 sm:p-3 rounded-lg transform hover:rotate-2 hover:scale-105 transition cursor-pointer">
+        <img src="images/photo4.jpg" class="rounded-lg mb-2">
+        <p class="text-xs sm:text-sm text-center">Ảnh kỷ niệm 4</p>
       </div>
 
     </div>
   </section>
 
-  <!-- Lightbox -->
+  <!-- Lightbox Overlay -->
   <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
-    <span onclick="closeLightbox()" class="absolute top-6 right-8 text-white text-3xl font-bold cursor-pointer">&times;</span>
-    <button onclick="prevImage()" class="absolute left-4 text-white text-3xl font-bold">&#10094;</button>
+    <span onclick="closeLightbox()"
+      class="absolute top-6 right-8 text-white text-3xl font-bold cursor-pointer">&times;</span>
     <img id="lightbox-img" src="" class="max-h-[90%] max-w-[90%] rounded-lg shadow-lg">
-    <button onclick="nextImage()" class="absolute right-4 text-white text-3xl font-bold">&#10095;</button>
   </div>
 
   <!-- Location -->
-  <section class="max-w-3xl mx-auto py-16 px-6 bg-gray-100 shadow-md rounded-2xl mt-12 text-center" data-aos="zoom-in">
-    <h3 class="text-2xl font-semibold mb-6">📍 Địa điểm</h3>
+  <section
+    class="max-w-full sm:max-w-3xl mx-auto py-8 sm:py-12 px-4 bg-gray-100 shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12 text-center"
+    data-aos="zoom-in">
+    <h3 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">📍 Địa điểm</h3>
+
+    <!-- Google Map -->
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4975.906783270906!2d105.8423066!3d21.006447399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac77be0eafaf%3A0xd66f269f842d3935!2zSOG7mWkgdHLGsOG7nW5nIEMy!5e1!3m2!1svi!2s!4v1757783032997!5m2!1svi!2s"
-      width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    <p class="mt-4 text-gray-700 text-lg font-medium">
-      🎓 Hội trường C2 – Trường Đại học Bách Khoa Hà Nội  
-      <br> (Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội)
+      width="100%" height="150" sm:height="250" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" class="rounded-lg"></iframe>
+
+    <!-- Caption -->
+    <p class="mt-2 sm:mt-4 text-gray-700 text-sm sm:text-lg font-medium">
+      🎓 Hội trường C2 – Trường Đại học Bách Khoa Hà Nội<br>
+      (Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội)
     </p>
-    <a href="https://goo.gl/maps/xxxx" target="_blank"
-       class="inline-block mt-4 px-4 py-2 bg-blue-700 text-white rounded-lg shadow hover:bg-blue-800 transition">
-       📌 Mở Google Maps
-    </a>
-    <div class="mt-6 flex justify-center">
-      <img src="images/hall-c2.jpg" alt="Hình thực tế hội trường C2" class="rounded-xl shadow-lg max-h-64 object-cover">
+
+    <!-- Real photo -->
+    <div class="mt-4 sm:mt-6 flex justify-center">
+      <img src="images/photo1.jpg" alt="Hình thực tế hội trường C2"
+        class="rounded-xl shadow-lg max-h-40 sm:max-h-64 object-cover">
     </div>
+
+    <!-- Button open maps -->
+    <a href="https://maps.app.goo.gl/cNnMcGYt2XzZ6qgw8" target="_blank"
+      class="inline-block mt-4 sm:mt-6 bg-blue-700 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-800 transition text-sm sm:text-base">
+      📍 Mở Google Maps
+    </a>
   </section>
 
   <!-- Confirm -->
-  <section class="text-center py-16 px-6 bg-gray-100 shadow-md rounded-2xl mt-12 max-w-xl mx-auto" data-aos="flip-left">
-    <h3 class="text-2xl font-semibold mb-4">✅ Xác nhận tham dự</h3>
+  <section
+    class="text-center py-8 sm:py-12 px-4 bg-gray-100 shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12 max-w-xl mx-auto"
+    data-aos="flip-left">
+    <h3 class="text-xl sm:text-2xl font-semibold mb-4">✅ Xác nhận tham dự</h3>
     <input id="guestName" type="text" placeholder="Nhập tên của bạn"
-      class="border rounded-lg px-4 py-2 w-64 mb-4 shadow-sm">
+      class="border rounded-lg px-3 py-2 sm:px-4 sm:py-2 w-48 sm:w-64 mb-4 shadow-sm text-sm sm:text-base">
     <br>
-    <button id="confirmBtn" onclick="submitConfirm()"
-      class="bg-blue-700 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-800 transition">
+    <button onclick="submitConfirm()"
+      class="bg-blue-700 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg shadow hover:bg-blue-800 transition text-sm sm:text-base">
       Gửi xác nhận
     </button>
-    <p id="confirmMessage" class="mt-4 font-semibold"></p>
+    <p id="confirmMessage" class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base"></p>
   </section>
 
-  <!-- Footer -->
-  <footer class="text-center py-6 bg-gray-200 mt-12">
-    <p>Cảm ơn vì đã đến chung vui cùng mình! 💖</p>
-  </footer>
+  <!-- Canvas Fireworks -->
+  <canvas id="fireworksCanvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
 
   <!-- Lightbox JS -->
   <script>
-    const images = ["images/photo1.jpg", "images/photo2.jpg", "images/photo3.jpg", "images/photo4.jpg"];
-    let currentIndex = 0;
-
-    function openLightbox(index) {
-      currentIndex = index;
+    function openLightbox(src) {
       document.getElementById("lightbox").classList.remove("hidden");
       document.getElementById("lightbox").classList.add("flex");
-      document.getElementById("lightbox-img").src = images[currentIndex];
+      document.getElementById("lightbox-img").src = src;
     }
     function closeLightbox() {
       document.getElementById("lightbox").classList.add("hidden");
+      document.getElementById("lightbox").classList.remove("flex");
     }
-    function prevImage() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      document.getElementById("lightbox-img").src = images[currentIndex];
-    }
-    function nextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
-      document.getElementById("lightbox-img").src = images[currentIndex];
-    }
+    document.getElementById("lightbox").addEventListener("click", function (e) {
+      if (e.target.id === "lightbox" || e.target.tagName === "SPAN") {
+        closeLightbox();
+      }
+    });
   </script>
 
   <!-- Firebase SDK -->
@@ -192,34 +175,92 @@
     const db = getFirestore(app);
 
     async function submitConfirm() {
-      const btn = document.getElementById("confirmBtn");
-      const msg = document.getElementById("confirmMessage");
       const name = document.getElementById("guestName").value.trim();
+      const msg = document.getElementById("confirmMessage");
 
       if (!name) {
         msg.innerText = "⚠️ Vui lòng nhập tên trước!";
-        msg.className = "mt-4 font-semibold text-red-600";
+        msg.className = "mt-3 sm:mt-4 font-semibold text-red-600";
         return;
       }
 
-      // Loading
-      btn.innerHTML = '<span class="spinner"></span>';
-
       try {
-        await addDoc(collection(db, "guests"), { name: name, time: serverTimestamp() });
+        await addDoc(collection(db, "guests"), {
+          name: name,
+          time: serverTimestamp()
+        });
         msg.innerText = "🎉 Xác nhận thành công!";
-        msg.className = "mt-4 font-semibold text-green-600";
+        msg.className = "mt-3 sm:mt-4 font-semibold text-green-600";
         document.getElementById("guestName").value = "";
+        triggerFireworks();
       } catch (e) {
-        console.error("Lỗi ghi Firestore:", e);
+        console.error("Lỗi ghi Firestore: ", e);
         msg.innerText = "❌ Không thể lưu dữ liệu!";
-        msg.className = "mt-4 font-semibold text-red-600";
-      } finally {
-        btn.innerHTML = "Gửi xác nhận";
+        msg.className = "mt-3 sm:mt-4 font-semibold text-red-600";
       }
     }
 
     window.submitConfirm = submitConfirm;
+  </script>
+
+  <!-- Fireworks JS -->
+  <script>
+    const canvas = document.getElementById("fireworksCanvas");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+    let w, h;
+    function resizeCanvas() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+    class Particle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.speedX = (Math.random() - 0.5) * 6;
+        this.speedY = (Math.random() - 0.5) * 6;
+        this.alpha = 1;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.alpha -= 0.02;
+      }
+      draw() {
+        ctx.globalAlpha = this.alpha;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+    }
+    function createFirework(x, y) {
+      const colors = ["#2563eb", "#1d4ed8", "#10b981", "#f59e0b", "#ef4444"];
+      for (let i = 0; i < 50; i++) {
+        particles.push(new Particle(x, y, colors[Math.floor(Math.random() * colors.length)]));
+      }
+    }
+    function animate() {
+      ctx.clearRect(0, 0, w, h);
+      particles.forEach((p, i) => {
+        p.update();
+        p.draw();
+        if (p.alpha <= 0) particles.splice(i, 1);
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+    function triggerFireworks() {
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+          createFirework(Math.random() * w, Math.random() * h / 2 + h / 4);
+        }, i * 400);
+      }
+    }
   </script>
 
   <!-- Countdown -->
@@ -231,7 +272,7 @@
       const now = new Date().getTime();
       const distance = eventDate - now;
       if (distance < 0) {
-        countdown.innerHTML = `<div class="text-2xl font-bold text-green-600">🎉 Lễ đã bắt đầu!</div>`;
+        countdown.innerHTML = `<div class="text-xl sm:text-2xl font-bold text-green-600">🎉 Lễ đã bắt đầu!</div>`;
         return;
       }
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -240,30 +281,45 @@
       const secs = Math.floor((distance % (1000 * 60)) / 1000);
 
       countdown.innerHTML = `
-        <div class="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-4 py-3 rounded-lg shadow text-center">
-          <div class="text-3xl font-bold">${days}</div>
-          <div class="text-sm uppercase">Ngày</div>
+        <div class="bg-gradient-to-r from-blue-800 to-blue-600 text-white 
+                    px-2 py-2 sm:px-4 sm:py-3 
+                    rounded-lg shadow text-center w-16 sm:w-24">
+          <div class="text-lg sm:text-3xl font-bold">${days}</div>
+          <div class="text-xs sm:text-sm uppercase">Ngày</div>
         </div>
-        <div class="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-4 py-3 rounded-lg shadow text-center">
-          <div class="text-3xl font-bold">${hours}</div>
-          <div class="text-sm uppercase">Giờ</div>
+        <div class="bg-gradient-to-r from-blue-800 to-blue-600 text-white 
+                    px-2 py-2 sm:px-4 sm:py-3 
+                    rounded-lg shadow text-center w-16 sm:w-24">
+          <div class="text-lg sm:text-3xl font-bold">${hours}</div>
+          <div class="text-xs sm:text-sm uppercase">Giờ</div>
         </div>
-        <div class="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-4 py-3 rounded-lg shadow text-center">
-          <div class="text-3xl font-bold">${mins}</div>
-          <div class="text-sm uppercase">Phút</div>
+        <div class="bg-gradient-to-r from-blue-800 to-blue-600 text-white 
+                    px-2 py-2 sm:px-4 sm:py-3 
+                    rounded-lg shadow text-center w-16 sm:w-24">
+          <div class="text-lg sm:text-3xl font-bold">${mins}</div>
+          <div class="text-xs sm:text-sm uppercase">Phút</div>
         </div>
-        <div class="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-4 py-3 rounded-lg shadow text-center">
-          <div class="text-3xl font-bold">${secs}</div>
-          <div class="text-sm uppercase">Giây</div>
-        </div>`;
+        <div class="bg-gradient-to-r from-blue-800 to-blue-600 text-white 
+                    px-2 py-2 sm:px-4 sm:py-3 
+                    rounded-lg shadow text-center w-16 sm:w-24">
+          <div class="text-lg sm:text-3xl font-bold">${secs}</div>
+          <div class="text-xs sm:text-sm uppercase">Giây</div>
+        </div>
+      `;
     }
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>
 
+  <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init();</script>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 bg-gray-200 mt-8 sm:mt-12 text-sm sm:text-base">
+    <p>Cảm ơn vì đã đến chung vui cùng mình! 💖</p>
+  </footer>
 
 </body>
 </html>
