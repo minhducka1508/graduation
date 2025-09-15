@@ -233,18 +233,34 @@
 			const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 			const secs = Math.floor((distance % (1000 * 60)) / 1000);
 			countdown.innerHTML = `
-        <div class="bg-[#9d1d1f] text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg shadow text-center w-16 sm:w-24">
-          <div class="text-lg sm:text-3xl font-bold">${days}</div><div class="text-xs sm:text-sm uppercase">Ngày</div>
-        </div>
-        <div class="bg-[#9d1d1f] text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg shadow text-center w-16 sm:w-24">
-          <div class="text-lg sm:text-3xl font-bold">${hours}</div><div class="text-xs sm:text-sm uppercase">Giờ</div>
-        </div>
-        <div class="bg-[#9d1d1f] text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg shadow text-center w-16 sm:w-24">
-          <div class="text-lg sm:text-3xl font-bold">${mins}</div><div class="text-xs sm:text-sm uppercase">Phút</div>
-        </div>
-        <div class="bg-[#9d1d1f] text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg shadow text-center w-16 sm:w-24">
-          <div class="text-lg sm:text-3xl font-bold">${secs}</div><div class="text-xs sm:text-sm uppercase">Giây</div>
-        </div>`;
+				<div class="bg-[#9d1d1f] text-white px-2 py-2 sm:px-4 sm:py-3 
+							rounded-xl shadow-2xl text-center w-16 sm:w-24 
+							transform hover:scale-105 transition 
+							border border-white/30">
+					<div class="text-lg sm:text-3xl font-extrabold drop-shadow-lg">${days}</div>
+					<div class="text-xs sm:text-sm uppercase tracking-wide">Ngày</div>
+				</div>
+				<div class="bg-[#9d1d1f] text-white px-2 py-2 sm:px-4 sm:py-3 
+							rounded-xl shadow-2xl text-center w-16 sm:w-24 
+							transform hover:scale-105 transition 
+							border border-white/30">
+					<div class="text-lg sm:text-3xl font-extrabold drop-shadow-lg">${hours}</div>
+					<div class="text-xs sm:text-sm uppercase tracking-wide">Giờ</div>
+				</div>
+				<div class="bg-[#9d1d1f] text-white px-2 py-2 sm:px-4 sm:py-3 
+							rounded-xl shadow-2xl text-center w-16 sm:w-24 
+							transform hover:scale-105 transition 
+							border border-white/30">
+					<div class="text-lg sm:text-3xl font-extrabold drop-shadow-lg">${mins}</div>
+					<div class="text-xs sm:text-sm uppercase tracking-wide">Phút</div>
+				</div>
+				<div class="bg-[#9d1d1f] text-white px-2 py-2 sm:px-4 sm:py-3 
+							rounded-xl shadow-2xl text-center w-16 sm:w-24 
+							transform hover:scale-105 transition 
+							border border-white/30">
+					<div class="text-lg sm:text-3xl font-extrabold drop-shadow-lg">${secs}</div>
+					<div class="text-xs sm:text-sm uppercase tracking-wide">Giây</div>
+				</div>`;
 		}
 		updateCountdown(); setInterval(updateCountdown, 1000);
 	</script>
