@@ -22,7 +22,7 @@
 <body class="bg-gray-50 text-gray-800">
 
 	<!-- Header -->
-	<section class="text-center bg-gradient-to-r from-red-700 to-red-600 text-white py-12 sm:py-16 px-4"
+	<section class="text-center bg-gradient-to-r from-red-800 to-red-600 text-white py-12 sm:py-16 px-4"
 		data-aos="fade-down">
 		<h1 class="text-3xl sm:text-4xl font-bold mb-2">🎓 Graduation Ceremony</h1>
 		<h2 class="text-2xl sm:text-3xl mb-4">Trần Minh Đức</h2>
@@ -31,7 +31,7 @@
 	</section>
 
 	<!-- Timeline -->
-	<section class="max-w-2xl mx-auto py-8 sm:py-12 px-4 bg-gray-100 shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12"
+	<section class="max-w-2xl mx-auto py-8 sm:py-12 px-4 bg-white shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12"
 		data-aos="fade-up">
 		<h3 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center text-red-700">📅 Timeline</h3>
 		<ul class="space-y-2 sm:space-y-4 text-sm sm:text-lg text-center">
@@ -42,31 +42,35 @@
 	</section>
 
 	<!-- Memories - Gallery -->
-	<section class="max-w-5xl mx-auto py-8 sm:py-12 px-4 bg-gray-100 shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12"
+	<section class="max-w-5xl mx-auto py-8 sm:py-12 px-4 bg-white shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12"
 		data-aos="fade-up">
 		<h3 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center text-red-700">📸 Kỷ niệm</h3>
 		<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
 
+			<!-- Card 1 -->
 			<div onclick="openLightbox('images/nam1_full.jpg')"
-				class="bg-white shadow-xl p-2 sm:p-3 rounded-lg transform hover:-rotate-3 hover:scale-105 transition cursor-pointer">
-				<img src="nam1.jpg" class="rounded-lg mb-2">
+				class="bg-gray-50 shadow-lg p-2 sm:p-3 rounded-lg transform hover:-rotate-3 hover:scale-105 transition cursor-pointer">
+				<img src="images/nam1.jpg" class="rounded-lg mb-2">
 				<p class="text-xs sm:text-sm text-center">Ảnh kỷ niệm 1</p>
 			</div>
 
-			<div onclick="openLightbox('images/ngaydau.jpg')"
-				class="bg-white shadow-xl p-2 sm:p-3 rounded-lg transform hover:rotate-3 hover:scale-105 transition cursor-pointer">
+			<!-- Card 2 -->
+			<div onclick="openLightbox('images/photo2.jpg')"
+				class="bg-gray-50 shadow-lg p-2 sm:p-3 rounded-lg transform hover:rotate-3 hover:scale-105 transition cursor-pointer">
 				<img src="images/ngaydau.jpg" class="rounded-lg mb-2">
 				<p class="text-xs sm:text-sm text-center">Ảnh kỷ niệm 2</p>
 			</div>
 
+			<!-- Card 3 -->
 			<div onclick="openLightbox('images/photo3.jpg')"
-				class="bg-white shadow-xl p-2 sm:p-3 rounded-lg transform hover:-rotate-2 hover:scale-105 transition cursor-pointer">
+				class="bg-gray-50 shadow-lg p-2 sm:p-3 rounded-lg transform hover:-rotate-2 hover:scale-105 transition cursor-pointer">
 				<img src="images/photo3.jpg" class="rounded-lg mb-2">
 				<p class="text-xs sm:text-sm text-center">Ảnh kỷ niệm 3</p>
 			</div>
 
+			<!-- Card 4 -->
 			<div onclick="openLightbox('images/photo4.jpg')"
-				class="bg-white shadow-xl p-2 sm:p-3 rounded-lg transform hover:rotate-2 hover:scale-105 transition cursor-pointer">
+				class="bg-gray-50 shadow-lg p-2 sm:p-3 rounded-lg transform hover:rotate-2 hover:scale-105 transition cursor-pointer">
 				<img src="images/photo4.jpg" class="rounded-lg mb-2">
 				<p class="text-xs sm:text-sm text-center">Ảnh kỷ niệm 4</p>
 			</div>
@@ -74,7 +78,7 @@
 		</div>
 	</section>
 
-	<!-- Lightbox -->
+	<!-- Lightbox Overlay -->
 	<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
 		<span onclick="closeLightbox()"
 			class="absolute top-6 right-8 text-white text-3xl font-bold cursor-pointer">&times;</span>
@@ -87,7 +91,7 @@
 
 	<!-- Location -->
 	<section
-		class="max-w-full sm:max-w-3xl mx-auto py-8 sm:py-12 px-4 bg-gray-100 shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12 text-center"
+		class="max-w-full sm:max-w-3xl mx-auto py-8 sm:py-12 px-4 bg-white shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12 text-center"
 		data-aos="zoom-in">
 		<h3 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-red-700">📍 Địa điểm chụp hình</h3>
 		<p class="mt-2 sm:mt-4 text-gray-700 text-sm sm:text-lg font-medium">
@@ -105,7 +109,7 @@
 
 	<!-- Confirm -->
 	<section
-		class="text-center py-8 sm:py-12 px-4 bg-gray-100 shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12 max-w-xl mx-auto"
+		class="text-center py-8 sm:py-12 px-4 bg-white shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12 max-w-xl mx-auto"
 		data-aos="flip-left">
 		<h3 class="text-xl sm:text-2xl font-semibold mb-4 text-red-700">✅ Xác nhận tham dự</h3>
 		<input id="guestName" type="text" placeholder="Nhập tên của bạn"
@@ -118,13 +122,13 @@
 		<p id="confirmMessage" class="mt-3 sm:mt-4 font-semibold text-sm sm:text-base"></p>
 	</section>
 
-	<!-- Fireworks Canvas -->
+	<!-- Canvas Fireworks -->
 	<canvas id="fireworksCanvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
 
-	<!-- JS: Lightbox -->
+	<!-- JS: Lightbox Gallery -->
 	<script>
 		const galleryImages = [
-			"images/photo1_full.jpg",
+			"images/nam1_full.jpg",
 			"images/photo2.jpg",
 			"images/photo3.jpg",
 			"images/photo4.jpg",
@@ -150,6 +154,91 @@
 			currentIndex = (currentIndex + 1) % galleryImages.length;
 			document.getElementById("lightbox-img").src = galleryImages[currentIndex];
 		}
+		document.getElementById("lightbox").addEventListener("click", function (e) {
+			if (e.target.id === "lightbox") closeLightbox();
+		});
+		document.addEventListener("keydown", function (e) {
+			if (document.getElementById("lightbox").classList.contains("flex")) {
+				if (e.key === "ArrowLeft") prevImage();
+				if (e.key === "ArrowRight") nextImage();
+				if (e.key === "Escape") closeLightbox();
+			}
+		});
+	</script>
+
+	<!-- Firebase SDK -->
+	<script type="module">
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+		import { getFirestore, collection, addDoc, serverTimestamp }
+			from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+		const firebaseConfig = {
+			apiKey: "AIzaSyBItVx0nvuhsKhczv1ApGdt4mJwPONr1ZQ",
+			authDomain: "graduation-confirm.firebaseapp.com",
+			projectId: "graduation-confirm",
+			storageBucket: "graduation-confirm.appspot.com",
+			messagingSenderId: "687249613419",
+			appId: "1:687249613419:web:6f577b769067f8be0f072e",
+			measurementId: "G-7LM9DL98FG"
+		};
+
+		const app = initializeApp(firebaseConfig);
+		const db = getFirestore(app);
+
+		async function submitConfirm() {
+			const name = document.getElementById("guestName").value.trim();
+			const msg = document.getElementById("confirmMessage");
+			if (!name) {
+				msg.innerText = "⚠️ Vui lòng nhập tên trước!";
+				msg.className = "mt-3 sm:mt-4 font-semibold text-red-600";
+				return;
+			}
+			try {
+				await addDoc(collection(db, "guests"), { name: name, time: serverTimestamp() });
+				msg.innerText = "🎉 Xác nhận thành công!";
+				msg.className = "mt-3 sm:mt-4 font-semibold text-green-600";
+				document.getElementById("guestName").value = "";
+				triggerFireworks();
+			} catch (e) {
+				console.error("Lỗi ghi Firestore: ", e);
+				msg.innerText = "❌ Không thể lưu dữ liệu!";
+				msg.className = "mt-3 sm:mt-4 font-semibold text-red-600";
+			}
+		}
+		window.submitConfirm = submitConfirm;
+	</script>
+
+	<!-- Fireworks -->
+	<script>
+		const canvas = document.getElementById("fireworksCanvas");
+		const ctx = canvas.getContext("2d");
+		let particles = [];
+		let w, h;
+		function resizeCanvas() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+		window.addEventListener("resize", resizeCanvas); resizeCanvas();
+		class Particle {
+			constructor(x, y, color) {
+				this.x = x; this.y = y; this.color = color;
+				this.speedX = (Math.random() - 0.5) * 6;
+				this.speedY = (Math.random() - 0.5) * 6;
+				this.alpha = 1;
+			}
+			update() { this.x += this.speedX; this.y += this.speedY; this.alpha -= 0.02; }
+			draw() { ctx.globalAlpha = this.alpha; ctx.fillStyle = this.color; ctx.beginPath(); ctx.arc(this.x, this.y, 3, 0, Math.PI * 2); ctx.fill(); ctx.globalAlpha = 1; }
+		}
+		function createFirework(x, y) {
+			const colors = ["#b91c1c", "#dc2626", "#ef4444", "#f59e0b", "#111827"];
+			for (let i = 0; i < 50; i++) particles.push(new Particle(x, y, colors[Math.floor(Math.random() * colors.length)]));
+		}
+		function animate() {
+			ctx.clearRect(0, 0, w, h);
+			particles.forEach((p, i) => { p.update(); p.draw(); if (p.alpha <= 0) particles.splice(i, 1); });
+			requestAnimationFrame(animate);
+		}
+		animate();
+		function triggerFireworks() {
+			for (let i = 0; i < 5; i++) setTimeout(() => { createFirework(Math.random() * w, Math.random() * h / 2 + h / 4); }, i * 400);
+		}
 	</script>
 
 	<!-- Countdown -->
@@ -168,30 +257,30 @@
 			const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 			const secs = Math.floor((distance % (1000 * 60)) / 1000);
 			countdown.innerHTML = `
-        <div class="bg-gradient-to-r from-red-700 to-red-600 text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg shadow text-center w-16 sm:w-24">
+        <div class="bg-gradient-to-r from-red-800 to-red-600 text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg shadow text-center w-16 sm:w-24">
           <div class="text-lg sm:text-3xl font-bold">${days}</div><div class="text-xs sm:text-sm uppercase">Ngày</div>
         </div>
-        <div class="bg-gradient-to-r from-red-700 to-red-600 text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg shadow text-center w-16 sm:w-24">
+        <div class="bg-gradient-to-r from-red-800 to-red-600 text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg shadow text-center w-16 sm:w-24">
           <div class="text-lg sm:text-3xl font-bold">${hours}</div><div class="text-xs sm:text-sm uppercase">Giờ</div>
         </div>
-        <div class="bg-gradient-to-r from-red-700 to-red-600 text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg shadow text-center w-16 sm:w-24">
+        <div class="bg-gradient-to-r from-red-800 to-red-600 text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg shadow text-center w-16 sm:w-24">
           <div class="text-lg sm:text-3xl font-bold">${mins}</div><div class="text-xs sm:text-sm uppercase">Phút</div>
         </div>
-        <div class="bg-gradient-to-r from-red-700 to-red-600 text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg shadow text-center w-16 sm:w-24">
+        <div class="bg-gradient-to-r from-red-800 to-red-600 text-white px-2 py-2 sm:px-4 sm:py-3 rounded-lg shadow text-center w-16 sm:w-24">
           <div class="text-lg sm:text-3xl font-bold">${secs}</div><div class="text-xs sm:text-sm uppercase">Giây</div>
         </div>`;
 		}
 		updateCountdown(); setInterval(updateCountdown, 1000);
 	</script>
 
-	<!-- Footer -->
-	<footer class="text-center py-6 bg-gray-200 mt-8 sm:mt-12 text-sm sm:text-base">
-		<p>Cảm ơn vì đã đến chung vui cùng mình! 💖</p>
-	</footer>
-
 	<!-- AOS -->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script>AOS.init();</script>
+
+	<!-- Footer -->
+	<footer class="text-center py-6 bg-gray-100 mt-8 sm:mt-12 text-sm sm:text-base text-red-700">
+		<p>Cảm ơn vì đã đến chung vui cùng mình! 💖</p>
+	</footer>
 
 </body>
 
