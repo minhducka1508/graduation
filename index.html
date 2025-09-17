@@ -138,22 +138,45 @@
 		</div>
 	</div>
 
-  <!-- Location -->
-  <section class="max-w-full sm:max-w-3xl mx-auto py-8 sm:py-12 px-4 bg-white shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12 text-center"
-    data-aos="zoom-in">
-    <h3 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-[#9d1d1f]">📍 Địa điểm chụp hình</h3>
-    <p class="mt-2 sm:mt-4 text-gray-700 text-sm sm:text-lg font-medium">
-      🎓 Đài phun nước – Mọi người đến chỗ này nhé <br> Đi theo bản đồ bên dưới, please!!!
-    </p>
-    <div class="mt-4 sm:mt-6 flex justify-center">
-      <img src="images/map.webp" alt="Hình thực tế hội trường C2" onclick="openSingleImage('images/map.webp')"
-        class="rounded-xl shadow-lg max-h-40 sm:max-h-64 object-cover cursor-pointer hover:scale-105 transition">
-    </div>
-    <a href="https://maps.app.goo.gl/nkHGLPhLCowjKTN19" target="_blank"
-      class="inline-block mt-4 sm:mt-6 bg-[#9d1d1f] text-white px-4 py-2 rounded-lg shadow hover:bg-red-900 transition text-sm sm:text-base">
-      📍 Mở Google Maps
-    </a>
-  </section>
+	<!-- Location -->
+	<section
+		class="max-w-full sm:max-w-3xl mx-auto py-8 sm:py-12 px-4 bg-white shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12 text-center"
+		data-aos="zoom-in">
+		<h3 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-[#9d1d1f]">📍 Địa điểm chụp hình</h3>
+
+		<p class="mt-2 sm:mt-4 text-2xl sm:text-3xl font-extrabold 
+							bg-gradient-to-r from-yellow-300 via-red-500 to-pink-500 
+							bg-clip-text text-transparent animate-shimmer leading-relaxed">
+			🎓 Đài phun nước – Mọi người đến chỗ này nhé <br> Đi theo bản đồ bên dưới, please!!!
+		</p>
+
+		<div class="mt-4 sm:mt-6 flex justify-center">
+			<img src="images/map.webp" alt="Hình thực tế hội trường C2" onclick="openSingleImage('images/map.webp')"
+				class="rounded-xl shadow-lg max-h-40 sm:max-h-64 object-cover cursor-pointer hover:scale-105 transition">
+		</div>
+
+		<a href="https://maps.app.goo.gl/nkHGLPhLCowjKTN19" target="_blank"
+			class="inline-block mt-4 sm:mt-6 bg-[#9d1d1f] text-white px-4 py-2 rounded-lg shadow hover:bg-red-900 transition text-sm sm:text-base">
+			📍 Mở Google Maps
+		</a>
+	</section>
+
+	<style>
+		@keyframes shimmer {
+			0% {
+				background-position: -500px 0;
+			}
+
+			100% {
+				background-position: 500px 0;
+			}
+		}
+
+		.animate-shimmer {
+			background-size: 1000px 100%;
+			animation: shimmer 3s infinite linear;
+		}
+	</style>
 
   <!-- Confirm -->
   <section class="text-center py-8 sm:py-12 px-4 bg-white shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12 max-w-xl mx-auto"
