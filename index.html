@@ -90,13 +90,32 @@
     </div>
   </section>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
-    <span onclick="closeLightbox()" class="absolute top-6 right-8 text-white text-3xl font-bold cursor-pointer">&times;</span>
-    <span onclick="prevImage()" class="absolute left-4 sm:left-8 text-white text-3xl sm:text-5xl font-bold cursor-pointer select-none">&#10094;</span>
-    <img id="lightbox-img" src="" class="max-h-[90%] max-w-[90%] rounded-lg shadow-lg">
-    <span onclick="nextImage()" classs="absolute right-4 sm:right-8 text-white text-3xl sm:text-5xl font-bold cursor-pointer select-none">&#10095;</span>
-  </div>
+	<!-- Lightbox -->
+	<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden flex-col items-center justify-center z-50 p-4">
+		<!-- Top bar -->
+		<div class="w-full flex justify-between items-center text-white mb-4">
+			<span onclick="closeLightbox()" class="text-2xl sm:text-3xl font-bold cursor-pointer">&times;</span>
+			<button id="gridToggle" onclick="toggleGrid()"
+				class="hidden bg-white/20 hover:bg-white/40 px-3 py-1 rounded text-sm sm:text-base">
+				Xem tất cả
+			</button>
+		</div>
+
+		<!-- Slideshow mode -->
+		<div id="lightbox-slideshow" class="flex items-center justify-center w-full h-full relative">
+			<span onclick="prevImage()"
+				class="absolute left-2 sm:left-6 text-white text-3xl sm:text-5xl font-bold cursor-pointer select-none">&#10094;</span>
+			<img id="lightbox-img" src="" class="max-h-[80%] max-w-[90%] rounded-lg shadow-lg mx-auto">
+			<span onclick="nextImage()"
+				class="absolute right-2 sm:right-6 text-white text-3xl sm:text-5xl font-bold cursor-pointer select-none">&#10095;</span>
+		</div>
+
+		<!-- Grid mode -->
+		<div id="lightbox-grid"
+			class="hidden grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 overflow-y-auto max-h-[80%] w-full px-2">
+			<!-- Ảnh sẽ được inject bằng JS -->
+		</div>
+	</div>
 
   <!-- Location -->
   <section class="max-w-full sm:max-w-3xl mx-auto py-8 sm:py-12 px-4 bg-white shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12 text-center"
@@ -135,94 +154,103 @@
   </footer>
 
   <!-- Lightbox JS -->
-  <script>
-	const albums = [
-		[
-			"images/sv1.webp",
-			"images/sv2.webp",
-			"images/sv3.webp",
-			"images/sv4.webp",
-			"images/sv5.webp",
-			"images/sv6.webp",
-			"images/sv7.webp",
-			"images/sv8.webp",
-			"images/sv9.webp",
-			"images/sv10.webp",
-			"images/sv11.webp",
-			"images/sv12.webp"
-		],
-		[
-			"images/svtn1.webp",
-			"images/svtn2.webp",
-			"images/svtn3.webp",
-			"images/svtn4.webp",
-			"images/svtn5.webp"
-		],
-		[
-			"images/tn1.webp",
-			"images/tn2.webp",
-			"images/tn3.webp",
-			"images/tn4.webp",
-			"images/tn5.webp",
-			"images/tn6.webp"
-		],
-		[
-			"images/good1.webp",
-			"images/good2.webp",
-			"images/good3.webp",
-			"images/good4.webp",
-			"images/good5.webp"
-		]
-	];
+	<script>
+		const albums = [
+			["images/sv1.webp", "images/sv2.webp", "images/sv3.webp", "images/sv4.webp", "images/sv5.webp", "images/sv6.webp", "images/sv7.webp", "images/sv8.webp", "images/sv9.webp", "images/sv10.webp", "images/sv11.webp", "images/sv12.webp"],
+			["images/svtn1.webp", "images/svtn2.webp", "images/svtn3.webp", "images/svtn4.webp", "images/svtn5.webp"],
+			["images/tn1.webp", "images/tn2.webp", "images/tn3.webp", "images/tn4.webp", "images/tn5.webp", "images/tn6.webp"],
+			["images/good1.webp", "images/good2.webp", "images/good3.webp", "images/good4.webp", "images/good5.webp"]
+		];
 
-    let currentAlbum = [];
-    let currentIndex = 0;
+		let currentAlbum = [];
+		let currentIndex = 0;
+		let mode = "slideshow";
+		let isAlbum = false;
 
-    function openAlbum(albumIndex) {
-      currentAlbum = albums[albumIndex];
-      openLightbox(currentAlbum[0]);
-    }
+		function openAlbum(albumIndex) {
+			currentAlbum = albums[albumIndex];
+			isAlbum = true;
+			openLightbox(currentAlbum[0]);
+			document.getElementById("gridToggle").classList.remove("hidden");
+		}
 
-    function openSingleImage(src) {
-      currentAlbum = [src]; // chỉ chứa 1 ảnh
-      openLightbox(src);
-    }
+		function openSingleImage(src) {
+			currentAlbum = [src];
+			isAlbum = false;
+			mode = "slideshow";
+			openLightbox(src);
+			document.getElementById("gridToggle").classList.add("hidden");
+		}
 
-    function openLightbox(src) {
-      currentIndex = currentAlbum.indexOf(src);
-      if (currentIndex < 0) currentIndex = 0;
-      document.getElementById("lightbox").classList.remove("hidden");
-      document.getElementById("lightbox").classList.add("flex");
-      document.getElementById("lightbox-img").src = currentAlbum[currentIndex];
-    }
+		function openLightbox(src) {
+			currentIndex = currentAlbum.indexOf(src);
+			if (currentIndex < 0) currentIndex = 0;
+			document.getElementById("lightbox").classList.remove("hidden");
+			showSlideshow();
+		}
 
-    function closeLightbox() {
-      document.getElementById("lightbox").classList.add("hidden");
-      document.getElementById("lightbox").classList.remove("flex");
-    }
+		function closeLightbox() {
+			document.getElementById("lightbox").classList.add("hidden");
+		}
 
-    function prevImage() {
-      currentIndex = (currentIndex - 1 + currentAlbum.length) % currentAlbum.length;
-      document.getElementById("lightbox-img").src = currentAlbum[currentIndex];
-    }
+		function prevImage() {
+			if (mode !== "slideshow") return;
+			currentIndex = (currentIndex - 1 + currentAlbum.length) % currentAlbum.length;
+			document.getElementById("lightbox-img").src = currentAlbum[currentIndex];
+		}
 
-    function nextImage() {
-      currentIndex = (currentIndex + 1) % currentAlbum.length;
-      document.getElementById("lightbox-img").src = currentAlbum[currentIndex];
-    }
+		function nextImage() {
+			if (mode !== "slideshow") return;
+			currentIndex = (currentIndex + 1) % currentAlbum.length;
+			document.getElementById("lightbox-img").src = currentAlbum[currentIndex];
+		}
 
-    document.getElementById("lightbox").addEventListener("click", function (e) {
-      if (e.target.id === "lightbox") closeLightbox();
-    });
+		function toggleGrid() {
+			if (mode === "slideshow") {
+				showGrid();
+			} else {
+				showSlideshow();
+			}
+		}
 
-    document.addEventListener("keydown", function (e) {
-      if (document.getElementById("lightbox").classList.contains("flex")) {
-        if (e.key === "ArrowLeft") prevImage();
-        if (e.key === "ArrowRight") nextImage();
-        if (e.key === "Escape") closeLightbox();
-      }
-    });
-  </script>
+		function showSlideshow() {
+			mode = "slideshow";
+			document.getElementById("lightbox-grid").classList.add("hidden");
+			document.getElementById("lightbox-slideshow").classList.remove("hidden");
+			if (isAlbum) document.getElementById("gridToggle").innerText = "Xem tất cả";
+			document.getElementById("lightbox-img").src = currentAlbum[currentIndex];
+		}
+
+		function showGrid() {
+			mode = "grid";
+			document.getElementById("lightbox-slideshow").classList.add("hidden");
+			document.getElementById("lightbox-grid").classList.remove("hidden");
+			if (isAlbum) document.getElementById("gridToggle").innerText = "Trở lại";
+			const grid = document.getElementById("lightbox-grid");
+			grid.innerHTML = "";
+			currentAlbum.forEach((img, i) => {
+				const el = document.createElement("img");
+				el.src = img;
+				el.className = "w-full h-32 sm:h-40 object-cover rounded-lg cursor-pointer hover:scale-105 transition";
+				el.onclick = () => { currentIndex = i; showSlideshow(); };
+				grid.appendChild(el);
+			});
+		}
+
+		document.getElementById("lightbox").addEventListener("click", function (e) {
+			if (e.target.id === "lightbox") closeLightbox();
+		});
+
+		document.addEventListener("keydown", function (e) {
+			if (!document.getElementById("lightbox").classList.contains("hidden")) {
+				if (mode === "slideshow") {
+					if (e.key === "ArrowLeft") prevImage();
+					if (e.key === "ArrowRight") nextImage();
+				}
+				if (e.key === "Escape") closeLightbox();
+			}
+		});
+	</script>
 
   <!-- Fireworks Canvas -->
   <canvas id="fireworksCanvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
