@@ -58,44 +58,111 @@
 		</ul>
 	</section>
 
-	<!-- Memories - Gallery -->
+	<!-- Memories - Albums -->
 	<section class="max-w-5xl mx-auto py-8 sm:py-12 px-4 bg-white shadow-md rounded-xl sm:rounded-2xl mt-6 sm:mt-12"
-		data-aos="fade-up">
-		<h3 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center text-[#9d1d1f]">📸 Kỷ niệm</h3>
-		<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
-			<div onclick="openLightbox('images/nam1_full.webp')"
-				class="bg-gray-50 shadow-lg p-2 sm:p-3 rounded-lg transform hover:-rotate-3 hover:scale-105 transition cursor-pointer">
-				<img src="images/nam1.jpg" class="rounded-lg mb-2">
-				<p class="text-xs sm:text-sm text-center">Ảnh kỷ niệm 1</p>
-			</div>
-			<div onclick="openLightbox('images/photo2.jpg')"
-				class="bg-gray-50 shadow-lg p-2 sm:p-3 rounded-lg transform hover:rotate-3 hover:scale-105 transition cursor-pointer">
-				<img src="images/ngaydau.jpg" class="rounded-lg mb-2">
-				<p class="text-xs sm:text-sm text-center">Ảnh kỷ niệm 2</p>
-			</div>
-			<div onclick="openLightbox('images/photo3.jpg')"
-				class="bg-gray-50 shadow-lg p-2 sm:p-3 rounded-lg transform hover:-rotate-2 hover:scale-105 transition cursor-pointer">
-				<img src="images/photo3.jpg" class="rounded-lg mb-2">
-				<p class="text-xs sm:text-sm text-center">Ảnh kỷ niệm 3</p>
-			</div>
-			<div onclick="openLightbox('images/photo4.jpg')"
-				class="bg-gray-50 shadow-lg p-2 sm:p-3 rounded-lg transform hover:rotate-2 hover:scale-105 transition cursor-pointer">
-				<img src="images/photo4.jpg" class="rounded-lg mb-2">
-				<p class="text-xs sm:text-sm text-center">Ảnh kỷ niệm 4</p>
-			</div>
-		</div>
+	  data-aos="fade-up">
+	  <h3 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center text-[#9d1d1f]">📸 Kỷ niệm</h3>
+	
+	  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+	
+	    <!-- Album 1 -->
+	    <div onclick="openAlbum(0)"
+	      class="cursor-pointer bg-gray-50 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition">
+	      <img src="images/photo2.jpg" class="w-full h-48 object-cover">
+	      <p class="text-center py-3 font-medium">Album 1 – Năm Nhất</p>
+	    </div>
+	
+	    <!-- Album 2 -->
+	    <div onclick="openAlbum(1)"
+	      class="cursor-pointer bg-gray-50 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition">
+	      <img src="images/photo2.jpg" class="w-full h-48 object-cover">
+	      <p class="text-center py-3 font-medium">Album 2 – Những Ngày Cuối</p>
+	    </div>
+	
+	    <!-- Album 3 -->
+	    <div onclick="openAlbum(2)"
+	      class="cursor-pointer bg-gray-50 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition">
+	      <img src="images/photo2.jpg" class="w-full h-48 object-cover">
+	      <p class="text-center py-3 font-medium">Album 3 – Bạn Bè</p>
+	    </div>
+	
+	    <!-- Album 4 -->
+	    <div onclick="openAlbum(3)"
+	      class="cursor-pointer bg-gray-50 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition">
+	      <img src="images/photo2.jpg" class="w-full h-48 object-cover">
+	      <p class="text-center py-3 font-medium">Album 4 – Lễ Tốt Nghiệp</p>
+	    </div>
+	
+	  </div>
 	</section>
-
+	
 	<!-- Lightbox -->
 	<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
-		<span onclick="closeLightbox()"
-			class="absolute top-6 right-8 text-white text-3xl font-bold cursor-pointer">&times;</span>
-		<span onclick="prevImage()"
-			class="absolute left-4 sm:left-8 text-white text-3xl sm:text-5xl font-bold cursor-pointer select-none">&#10094;</span>
-		<img id="lightbox-img" src="" class="max-h-[90%] max-w-[90%] rounded-lg shadow-lg">
-		<span onclick="nextImage()"
-			class="absolute right-4 sm:right-8 text-white text-3xl sm:text-5xl font-bold cursor-pointer select-none">&#10095;</span>
+	  <!-- Close -->
+	  <span onclick="closeLightbox()"
+	    class="absolute top-6 right-8 text-white text-3xl font-bold cursor-pointer">&times;</span>
+	  <!-- Prev -->
+	  <span onclick="prevImage()"
+	    class="absolute left-4 sm:left-8 text-white text-3xl sm:text-5xl font-bold cursor-pointer select-none">&#10094;</span>
+	  <!-- Image -->
+	  <img id="lightbox-img" src="" class="max-h-[90%] max-w-[90%] rounded-lg shadow-lg">
+	  <!-- Next -->
+	  <span onclick="nextImage()"
+	    class="absolute right-4 sm:right-8 text-white text-3xl sm:text-5xl font-bold cursor-pointer select-none">&#10095;</span>
 	</div>
+	
+	<script>
+	  // Danh sách ảnh của từng album
+	  const albums = [
+	    ["images/photo2.jpg", "images/photo3.jpg", "images/photo4.jpg"],
+	    ["images/photo_album2_1.jpg", "images/photo_album2_2.jpg", "images/photo_album2_3.jpg"],
+	    ["images/photo_album3_1.jpg", "images/photo_album3_2.jpg", "images/photo_album3_3.jpg"],
+	    ["images/photo_album4_1.jpg", "images/photo_album4_2.jpg", "images/photo_album4_3.jpg"]
+	  ];
+	
+	  let currentAlbum = [];
+	  let currentIndex = 0;
+	
+	  function openAlbum(albumIndex) {
+	    currentAlbum = albums[albumIndex];
+	    openLightbox(currentAlbum[0]);
+	  }
+	
+	  function openLightbox(src) {
+	    currentIndex = currentAlbum.indexOf(src);
+	    if (currentIndex < 0) currentIndex = 0;
+	    document.getElementById("lightbox").classList.remove("hidden");
+	    document.getElementById("lightbox").classList.add("flex");
+	    document.getElementById("lightbox-img").src = currentAlbum[currentIndex];
+	  }
+	
+	  function closeLightbox() {
+	    document.getElementById("lightbox").classList.add("hidden");
+	    document.getElementById("lightbox").classList.remove("flex");
+	  }
+	
+	  function prevImage() {
+	    currentIndex = (currentIndex - 1 + currentAlbum.length) % currentAlbum.length;
+	    document.getElementById("lightbox-img").src = currentAlbum[currentIndex];
+	  }
+	
+	  function nextImage() {
+	    currentIndex = (currentIndex + 1) % currentAlbum.length;
+	    document.getElementById("lightbox-img").src = currentAlbum[currentIndex];
+	  }
+	
+	  document.getElementById("lightbox").addEventListener("click", function (e) {
+	    if (e.target.id === "lightbox") closeLightbox();
+	  });
+	
+	  document.addEventListener("keydown", function (e) {
+	    if (document.getElementById("lightbox").classList.contains("flex")) {
+	      if (e.key === "ArrowLeft") prevImage();
+	      if (e.key === "ArrowRight") nextImage();
+	      if (e.key === "Escape") closeLightbox();
+	    }
+	  });
+	</script>
 
 	<!-- Location -->
 	<section
