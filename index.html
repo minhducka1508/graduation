@@ -66,25 +66,25 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <!-- Album 1 -->
       <div onclick="openAlbum(0)" class="cursor-pointer bg-gray-50 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition">
-        <img src="images/sv1.jpg" class="w-full h-48 object-cover">
+        <img src="images/sv1.webp" class="w-full h-48 object-cover">
         <p class="text-center py-3 font-medium">Album ảnh đời sinh viên</p>
       </div>
 
       <!-- Album 2 -->
       <div onclick="openAlbum(1)" class="cursor-pointer bg-gray-50 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition">
-        <img src="images/svtn1.jpg" class="w-full h-48 object-cover">
+        <img src="images/svtn1.webp" class="w-full h-48 object-cover">
         <p class="text-center py-3 font-medium">Album sinh viên tình nguyện</p>
       </div>
 
       <!-- Album 3 -->
       <div onclick="openAlbum(2)" class="cursor-pointer bg-gray-50 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition">
-        <img src="images/tn1.jpg" class="w-full h-48 object-cover">
+        <img src="images/tn5.webp" class="w-full h-48 object-cover">
         <p class="text-center py-3 font-medium">Album lễ tốt nghiệp tiền bối</p>
       </div>
 
       <!-- Album 4 -->
       <div onclick="openAlbum(3)" class="cursor-pointer bg-gray-50 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition">
-        <img src="images/good1.jpg" class="w-full h-48 object-cover">
+        <img src="images/good1.webp" class="w-full h-48 object-cover">
         <p class="text-center py-3 font-medium">Album những ngày tháng cuối thời sinh viên</p>
       </div>
     </div>
@@ -136,36 +136,44 @@
 
   <!-- Lightbox JS -->
   <script>
-    const albums = [
-      [ "images/sv1.jpg",
-		"images/sv2.jpg",
-		"images/sv3.jpg",
-		"images/sv4.jpg",
-		"images/sv5.jpg",
-		"images/sv6.jpg",
-		"images/sv7.jpg",
-		"images/sv8.jpg",
-		"images/sv9.jpg",
-		"images/sv10.jpg",
-		"images/sv11.jpg",
-		"images/sv12.jpg"],
-      ["images/svtn1.jpg",
-		"images/svtn2.jpg",
-		"images/svtn3.jpg",
-		"images/svtn4.jpg",
-		"images/svtn5.jpg"],
-      ["images/tn1.jpg",
-		"images/tn2.jpg",
-		"images/tn3.jpg",
-		"images/tn4.jpg",
-		"images/tn5.jpg",
-		"images/tn6.jpg"],
-      ["images/good1.jpg",
-		"images/good2.jpg",
-		"images/good3.jpg",
-		"images/good4.jpg",
-		"images/good5.jpg"]
-    ];
+	const albums = [
+		[
+			"images/sv1.webp",
+			"images/sv2.webp",
+			"images/sv3.webp",
+			"images/sv4.webp",
+			"images/sv5.webp",
+			"images/sv6.webp",
+			"images/sv7.webp",
+			"images/sv8.webp",
+			"images/sv9.webp",
+			"images/sv10.webp",
+			"images/sv11.webp",
+			"images/sv12.webp"
+		],
+		[
+			"images/svtn1.webp",
+			"images/svtn2.webp",
+			"images/svtn3.webp",
+			"images/svtn4.webp",
+			"images/svtn5.webp"
+		],
+		[
+			"images/tn1.webp",
+			"images/tn2.webp",
+			"images/tn3.webp",
+			"images/tn4.webp",
+			"images/tn5.webp",
+			"images/tn6.webp"
+		],
+		[
+			"images/good1.webp",
+			"images/good2.webp",
+			"images/good3.webp",
+			"images/good4.webp",
+			"images/good5.webp"
+		]
+	];
 
     let currentAlbum = [];
     let currentIndex = 0;
