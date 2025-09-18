@@ -197,7 +197,7 @@
     <p>Cảm ơn vì đã đến chung vui cùng mình! 💖</p>
   </footer>
 
-  <!-- Lightbox JS -->
+	<!-- Lightbox JS -->
 	<script>
 		const albums = [
 			["images/sv1.webp", "images/sv2.webp", "images/sv3.webp", "images/sv4.webp", "images/sv5.webp", "images/sv6.webp", "images/sv7.webp", "images/sv8.webp", "images/sv9.webp", "images/sv10.webp", "images/sv11.webp", "images/sv12.webp"],
@@ -292,6 +292,27 @@
 					if (e.key === "ArrowRight") nextImage();
 				}
 				if (e.key === "Escape") closeLightbox();
+			}
+		});
+
+		// 👇 Thêm vuốt trượt trên điện thoại
+		let startX = 0;
+		const lightboxImg = document.getElementById("lightbox-img");
+
+		lightboxImg.addEventListener("touchstart", (e) => {
+			startX = e.touches[0].clientX;
+		});
+
+		lightboxImg.addEventListener("touchend", (e) => {
+			const endX = e.changedTouches[0].clientX;
+			const diffX = endX - startX;
+
+			if (Math.abs(diffX) > 50) { // Vuốt đủ xa mới tính
+				if (diffX > 0) {
+					prevImage(); // Vuốt sang phải → ảnh trước
+				} else {
+					nextImage(); // Vuốt sang trái → ảnh sau
+				}
 			}
 		});
 	</script>
