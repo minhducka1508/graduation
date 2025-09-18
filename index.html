@@ -31,16 +31,6 @@
 			background-size: 1000px 100%;
 			animation: shimmer 3s infinite linear;
 		}
-
-		/* Xoay ngang khi slideshow trên mobile */
-		body.landscape {
-			transform: rotate(90deg);
-			transform-origin: center center;
-			height: 100vw;
-			width: 100vh;
-			overflow: hidden;
-			position: fixed;
-		}
 	</style>
 </head>
 
@@ -83,8 +73,7 @@
 		</p>
 		<p class="text-center text-lg sm:text-xl mt-3 text-gray-800">
 			Có gì liên hệ <a href="tel:0348026103" class="font-bold text-[#9d1d1f] underline decoration-wavy">0348026103</a>
-			nhé
-			mọi người!
+			nhé mọi người!
 		</p>
 	</section>
 
@@ -128,7 +117,7 @@
 		<div id="lightbox-slideshow" class="hidden flex items-center justify-center w-full h-full relative">
 			<span onclick="prevImage()"
 				class="absolute left-2 sm:left-6 text-white text-3xl sm:text-5xl font-bold cursor-pointer select-none">&#10094;</span>
-			<img id="lightbox-img" src="" class="max-h-[80%] max-w-[90%] rounded-lg shadow-lg mx-auto">
+			<img id="lightbox-img" src="" class="max-h-[90%] max-w-[90%] object-contain rounded-lg shadow-lg mx-auto">
 			<span onclick="nextImage()"
 				class="absolute right-2 sm:right-6 text-white text-3xl sm:text-5xl font-bold cursor-pointer select-none">&#10095;</span>
 		</div>
@@ -226,7 +215,6 @@
 			document.getElementById("lightbox-grid").classList.add("hidden");
 			document.getElementById("lightbox-slideshow").classList.remove("hidden");
 			updateSlideshow();
-			if (window.innerWidth < 768) document.body.classList.add("landscape");
 		}
 
 		function updateSlideshow() {
@@ -235,7 +223,6 @@
 
 		function closeLightbox() {
 			document.getElementById("lightbox").classList.add("hidden");
-			document.body.classList.remove("landscape");
 		}
 
 		function prevImage() {
